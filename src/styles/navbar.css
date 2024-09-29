@@ -9,7 +9,7 @@
 
 body {
   min-height: 100vh;
-  background: url('/fondo-presentacion-videos.png') no-repeat;
+  background: white;
   background-size: cover;
   background-position: center;
 }
@@ -19,7 +19,7 @@ body {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 20px 100px;
+  padding: 20px 50px;
   background: transparent;
   display: flex;
   justify-content: space-between;
@@ -28,19 +28,25 @@ body {
 }
 
 .logo {
-  font-size: 32px;
+  font-size: 28px;
   color: #fff;
   text-decoration: none;
   font-weight: 700;
 }
 
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
 .navbar a {
   position: relative;
-  font-size: 18px;
+  font-size: 16px;
   color: #fff;
   font-weight: 500;
   text-decoration: none;
-  margin-left: 40px;
+  margin-left: 20px;
 }
 
 .navbar a::before {
@@ -50,10 +56,85 @@ body {
   left: 0;
   width: 0;
   height: 2px;
-  background: #fff;
+  background: rgb(206, 76, 76);
   transition: 0.3s;
 }
 
 .navbar a:hover::before {
   width: 100%;
+}
+
+/* Media Queries para dispositivos medianos (tablets) */
+@media (max-width: 768px) {
+  .header {
+    padding: 15px 30px;
+  }
+
+  .logo {
+    font-size: 24px;
+  }
+
+  .navbar a {
+    font-size: 14px;
+    margin-left: 15px;
+  }
+}
+
+/* Media Queries para dispositivos pequeños (móviles) */
+@media (max-width: 480px) {
+  .header {
+    padding: 10px 20px;
+    flex-direction: column;
+  }
+
+  .logo {
+    font-size: 20px;
+  }
+
+  .navbar {
+    display: none; /* Oculta la barra de navegación */
+  }
+
+  .hamburger {
+    display: block; /* Muestra el ícono de hamburguesa */
+  }
+
+  /* Cuando el menú se active */
+  .navbar.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    text-align: center;
+    z-index: 99;
+  }
+
+  .navbar a {
+    font-size: 20px;
+    color: #fff;
+    margin: 10px 0;
+  }
+}
+
+/* Estilos para el ícono de hamburguesa */
+.hamburger {
+  display: none;
+  font-size: 30px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Mostrar hamburguesa para pantallas pequeñas */
+@media (max-width: 768px) {
+  .navbar {
+    display: none; /* Oculta los enlaces del navbar en pantallas pequeñas */
+  }
+
+  .hamburger {
+    display: block; /* Muestra el ícono de hamburguesa */
+  }
 }

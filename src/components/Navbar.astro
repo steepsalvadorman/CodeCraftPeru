@@ -1,14 +1,30 @@
 ---
-import '../styles/navbar.css';
+import '../styles/navbar.css'; // Importa el CSS de la navbar
 ---
 
 <header class="header">
-	<a href="#" class="logo">Logo</a>
-	<nav class="navbar">
+	<a href="#" class="logo">CodeCraftPerú</a>
+	<nav class="navbar" id="navbar">
 		<a href="#">Inicio</a>
 		<a href="#">Acerca de</a>
-		<a href="#">Galeria</a>
+		<a href="#">Galería</a>
 		<a href="#">Servicios</a>
 		<a href="#">Contacto</a>
 	</nav>
+	<div class="hamburger" id="hamburger">&#9776;</div>
 </header>
+
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const hamburger = document.getElementById('hamburger');
+		const navbar = document.getElementById('navbar');
+
+		if (hamburger) {
+			hamburger.addEventListener('click', () => {
+				if (navbar) {
+					navbar.classList.toggle('active');
+				}
+			});
+		}
+	});
+</script>
