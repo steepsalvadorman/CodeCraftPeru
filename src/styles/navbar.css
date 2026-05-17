@@ -21,6 +21,19 @@
   display: flex;
   align-items: center;
   gap: 12px;
+  cursor: pointer;
+}
+
+.logo-icon {
+  width: 28px;
+  height: 28px;
+  filter: drop-shadow(0 0 6px rgba(220, 68, 68, 0.3));
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), filter 0.4s ease;
+}
+
+.logo-area:hover .logo-icon {
+  transform: rotate(12deg) scale(1.08);
+  filter: drop-shadow(0 0 10px rgba(220, 68, 68, 0.6));
 }
 
 .logo {
