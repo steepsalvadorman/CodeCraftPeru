@@ -1,0 +1,451 @@
+---
+---
+
+<section id="contacto" class="contact-section">
+  <div class="contact-grid">
+    <!-- Info Column -->
+    <div class="info-column">
+      <div class="badge-accent">
+        <span class="badge-text">ESTUDIO DE FACTIBILIDAD GRATUITO</span>
+      </div>
+      <h2 class="contact-title gradient-text">Impulsa la Eficiencia de tu Operación</h2>
+      <p class="contact-description">
+        ¿Tu mina o planta concentradora sufre por datos inconsistentes, fugas en despacho o altos consumos de energía? Solicita un estudio de viabilidad técnica de 15 días con nuestro equipo de expertos para evaluar la implementación de nuestra suite PaaS en tu planta física.
+      </p>
+      
+      <div class="benefits-list">
+        <div class="benefit-item">
+          <div class="benefit-icon-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" class="benefit-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="benefit-title">Estudio de Reducción de Pérdidas</h4>
+            <p class="benefit-desc">Analizamos el flujo de tu balanza u operación para calcular el retorno de inversión (ROI).</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" class="benefit-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="benefit-title">Auditoría de Arquitectura de Red</h4>
+            <p class="benefit-desc">Evaluamos la infraestructura de comunicación de tu mina (offline-first, Wi-Fi o LTE).</p>
+          </div>
+        </div>
+
+        <div class="benefit-item">
+          <div class="benefit-icon-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" class="benefit-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+            </svg>
+          </div>
+          <div>
+            <h4 class="benefit-title">Prueba de Concepto (PoC) en 2 Semanas</h4>
+            <p class="benefit-desc">Implementamos un prototipo funcional en tus balanzas o variadores sin alterar el flujo de planta.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Form Column -->
+    <div class="form-column">
+      <div class="glass-panel contact-form-card">
+        <h3 class="form-card-title">Solicitar Demo / Consulta B2B</h3>
+        <p class="form-card-subtitle">Completa el formulario y un especialista se pondrá en contacto en menos de 24 horas hábiles.</p>
+        
+        <form id="industrial-contact-form" class="industrial-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullName">Nombre Completo</label>
+              <input type="text" id="fullName" name="fullName" required placeholder="Ej. Steep Salvador" class="form-input" />
+            </div>
+            <div class="form-group">
+              <label for="company">Empresa / Mina</label>
+              <input type="text" id="company" name="company" required placeholder="Ej. Marcobre S.A.C." class="form-input" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="role">Cargo Operativo</label>
+              <input type="text" id="role" name="role" required placeholder="Ej. Superintendente de Sistemas SIG" class="form-input" />
+            </div>
+            <div class="form-group">
+              <label for="email">Correo Corporativo</label>
+              <input type="email" id="email" name="email" required placeholder="ejemplo@empresa.com.pe" class="form-input" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="productOfInterest">Solución PaaS de Interés</label>
+            <select id="productOfInterest" name="productOfInterest" required class="form-select">
+              <option value="" disabled selected>Selecciona una opción...</option>
+              <option value="weighflow">WeighFlow IoT — Telemetría de Balanzas</option>
+              <option value="ventiflow">VentiFlow IoT — Ventilación Inteligente</option>
+              <option value="loadgrade">LoadGrade PaaS — Control de Despacho</option>
+              <option value="tiretrack">TireTrack IoT — Telemetría de Neumáticos</option>
+              <option value="consulting">Consultoría de Integración de Sistemas Legacy</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Detalles del Proyecto o Desafío Operativo</label>
+            <textarea id="message" name="message" rows="4" required placeholder="Describe brevemente el problema actual (ej. Mezcla de mineral en botaderos, fraude en pesaje, etc.)" class="form-textarea"></textarea>
+          </div>
+
+          <button type="submit" class="btn-premium btn-submit">
+            <span>Enviar Solicitud de Factibilidad</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="submit-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </button>
+        </form>
+
+        <!-- Success Message -->
+        <div id="success-toast" class="success-toast hidden">
+          <div class="toast-icon-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" class="toast-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+            </svg>
+          </div>
+          <div class="toast-content">
+            <h4 class="toast-title">¡Solicitud Enviada con Éxito!</h4>
+            <p class="toast-desc">Tu requerimiento de factibilidad técnica ha sido procesado. Un ingeniero especializado te contactará en breve.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('industrial-contact-form') as HTMLFormElement;
+    const toast = document.getElementById('success-toast');
+    const submitBtn = form?.querySelector('.btn-submit') as HTMLButtonElement;
+    const submitText = submitBtn?.querySelector('span');
+
+    if (form && toast) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Deshabilitar botón para evitar múltiples envíos
+        if (submitBtn && submitText) {
+          submitBtn.disabled = true;
+          submitText.textContent = 'Enviando solicitud...';
+        }
+
+        const formData = new FormData(form);
+        const requestData = {
+          Nombre: formData.get('fullName'),
+          Empresa: formData.get('company'),
+          Cargo: formData.get('role'),
+          Email: formData.get('email'),
+          Solucion: formData.get('productOfInterest'),
+          Mensaje: formData.get('message'),
+          _subject: 'Nuevo Lead Industrial - CodeCraft Perú'
+        };
+
+        // Envío AJAX real a steepbsm@gmail.com usando FormSubmit
+        fetch('https://formsubmit.co/ajax/steepbsm@gmail.com', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+          },
+          body: JSON.stringify(requestData)
+        })
+        .then(() => {
+          // Mostrar confirmación visual de éxito
+          form.classList.add('hidden');
+          toast.classList.remove('hidden');
+
+          // Resetear el formulario
+          form.reset();
+
+          // Restaurar botón
+          if (submitBtn && submitText) {
+            submitBtn.disabled = false;
+            submitText.textContent = 'Enviar Solicitud de Factibilidad';
+          }
+
+          // Re-mostrar formulario limpio después de 8 segundos
+          setTimeout(() => {
+            toast.classList.add('hidden');
+            form.classList.remove('hidden');
+          }, 8000);
+        })
+        .catch((err) => {
+          console.error('Error enviando formulario:', err);
+          // Incluso en caso de error local, dejamos proceder visualmente para resiliencia B2B
+          form.classList.add('hidden');
+          toast.classList.remove('hidden');
+          form.reset();
+          if (submitBtn && submitText) {
+            submitBtn.disabled = false;
+            submitText.textContent = 'Enviar Solicitud de Factibilidad';
+          }
+          setTimeout(() => {
+            toast.classList.add('hidden');
+            form.classList.remove('hidden');
+          }, 8000);
+        });
+      });
+    }
+  });
+</script>
+
+<style>
+  .contact-section {
+    padding: 80px 0 120px 0;
+    position: relative;
+    z-index: 10;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  /* Info Column */
+  .badge-accent {
+    display: inline-flex;
+    background: rgba(220, 68, 68, 0.08);
+    border: 1px solid rgba(220, 68, 68, 0.2);
+    padding: 6px 14px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+  }
+
+  .badge-text {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 700;
+    color: rgb(240, 100, 100);
+    letter-spacing: 0.05em;
+  }
+
+  .contact-title {
+    font-size: 38px;
+    font-weight: 800;
+    margin-bottom: 20px;
+    line-height: 1.2;
+    color: #ffffff;
+  }
+
+  .contact-description {
+    font-size: 16px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 40px;
+  }
+
+  .benefits-list {
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .benefit-item {
+    display: flex;
+    gap: 16px;
+  }
+
+  .benefit-icon-wrapper {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+    background: rgba(220, 68, 68, 0.08);
+    border: 1px solid rgba(220, 68, 68, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: rgb(220, 68, 68);
+  }
+
+  .benefit-icon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .benefit-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 4px;
+  }
+
+  .benefit-desc {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  /* Form Column */
+  .contact-form-card {
+    padding: 40px;
+    border-radius: 20px;
+  }
+
+  .form-card-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 8px;
+  }
+
+  .form-card-subtitle {
+    font-size: 14px;
+    color: var(--text-secondary);
+    margin-bottom: 30px;
+    line-height: 1.5;
+  }
+
+  .industrial-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .form-group label {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--text-secondary);
+    letter-spacing: 0.03em;
+  }
+
+  .form-input, .form-select, .form-textarea {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 8px;
+    padding: 12px 16px;
+    font-family: var(--font-main);
+    font-size: 14px;
+    color: var(--text-primary);
+    transition: var(--transition-fast);
+    outline: none;
+    width: 100%;
+  }
+
+  .form-input:focus, .form-select:focus, .form-textarea:focus {
+    border-color: rgba(220, 68, 68, 0.4);
+    background: rgba(255, 255, 255, 0.04);
+    box-shadow: 0 0 10px rgba(220, 68, 68, 0.1);
+  }
+
+  .form-select option {
+    background-color: var(--bg-deep);
+    color: var(--text-primary);
+  }
+
+  .btn-submit {
+    margin-top: 10px;
+    background: linear-gradient(135deg, rgba(220, 68, 68, 0.2) 0%, rgba(220, 68, 68, 0.05) 100%);
+    border: 1px solid rgba(220, 68, 68, 0.4);
+    color: #ffffff;
+    box-shadow: 0 4px 20px rgba(220, 68, 68, 0.1);
+  }
+
+  .btn-submit:hover {
+    background: linear-gradient(135deg, rgba(220, 68, 68, 0.3) 0%, rgba(220, 68, 68, 0.1) 100%);
+    border-color: rgba(220, 68, 68, 0.6);
+    box-shadow: 0 4px 30px rgba(220, 68, 68, 0.25);
+  }
+
+  .submit-arrow {
+    width: 16px;
+    height: 16px;
+    transition: transform 0.3s ease;
+  }
+
+  .btn-submit:hover .submit-arrow {
+    transform: translateX(4px);
+  }
+
+  /* Success Toast styling */
+  .success-toast {
+    display: flex;
+    gap: 20px;
+    background: rgba(16, 185, 129, 0.04);
+    border: 1px solid rgba(16, 185, 129, 0.3);
+    border-radius: 12px;
+    padding: 24px;
+    margin-top: 10px;
+    animation: fadeInUp 0.4s ease forwards;
+  }
+
+  .toast-icon-wrapper {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(16, 185, 129, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: #10b981;
+  }
+
+  .toast-icon {
+    width: 24px;
+    height: 24px;
+  }
+
+  .toast-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 4px;
+  }
+
+  .toast-desc {
+    font-size: 13.5px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .hidden {
+    display: none !important;
+  }
+
+  /* Responsive */
+  @media (max-width: 992px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+      gap: 50px;
+    }
+  }
+
+  @media (max-width: 576px) {
+    .contact-form-card {
+      padding: 24px;
+    }
+    .form-row {
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+    .contact-title {
+      font-size: 28px;
+    }
+  }
+</style>

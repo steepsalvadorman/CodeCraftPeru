@@ -3,28 +3,51 @@ import '../styles/navbar.css'; // Importa el CSS de la navbar
 ---
 
 <header class="header">
-	<a href="#" class="logo">CodeCraftPerú</a>
-	<nav class="navbar" id="navbar">
-		<a href="#">Inicio</a>
-		<a href="#">Acerca de</a>
-		<a href="#">Galería</a>
-		<a href="#">Servicios</a>
-		<a href="#">Contacto</a>
-	</nav>
-	<div class="hamburger" id="hamburger">&#9776;</div>
+  <div class="logo-area">
+    <a href="#" class="logo">
+      <span class="logo-code">&lt;</span>CodeCraft<span class="logo-country">Perú</span><span class="logo-code">&gt;</span>
+    </a>
+    <span class="logo-badge-status">ENGINE ACTIVE</span>
+  </div>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-links">
+      <a href="#"><span class="nav-num">01.</span>/inicio</a>
+      <a href="#paas-suite"><span class="nav-num">02.</span>/soluciones-paas</a>
+      <a href="#detalles-tecnicos"><span class="nav-num">03.</span>/detalles-tecnicos</a>
+      <a href="#contacto"><span class="nav-num">04.</span>/contacto</a>
+    </div>
+    <a href="#contacto" class="nav-cta">
+      <span>Solicitar Factibilidad</span>
+    </a>
+  </nav>
+
+  <div class="hamburger" id="hamburger" aria-label="Abrir Menú">
+    <div class="bar bar1"></div>
+    <div class="bar bar2"></div>
+    <div class="bar bar3"></div>
+  </div>
 </header>
 
 <script>
-	document.addEventListener('DOMContentLoaded', () => {
-		const hamburger = document.getElementById('hamburger');
-		const navbar = document.getElementById('navbar');
+  document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const navbar = document.getElementById('navbar');
 
-		if (hamburger) {
-			hamburger.addEventListener('click', () => {
-				if (navbar) {
-					navbar.classList.toggle('active');
-				}
-			});
-		}
-	});
+    if (hamburger && navbar) {
+      hamburger.addEventListener('click', () => {
+        hamburger.classList.toggle('active');
+        navbar.classList.toggle('active');
+      });
+
+      // Cerrar el menú móvil al hacer clic en un enlace
+      const links = navbar.querySelectorAll('a');
+      links.forEach(link => {
+        link.addEventListener('click', () => {
+          hamburger.classList.remove('active');
+          navbar.classList.remove('active');
+        });
+      });
+    }
+  });
 </script>

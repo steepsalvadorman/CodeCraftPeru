@@ -1,0 +1,459 @@
+---
+---
+
+<section id="detalles-tecnicos" class="product-details-section">
+  <div class="section-header">
+    <h2 class="section-title gradient-text">Desglose Técnico de Funcionalidad</h2>
+    <p class="section-subtitle">
+      Arquitecturas robustas diseñadas con software craftsmanship para operar sin interrupciones en los entornos más hostiles de la industria.
+    </p>
+  </div>
+
+  <div class="details-container">
+    <!-- WeighFlow Detail -->
+    <div id="detalles-weighflow" class="detail-block glass-panel" style="--detail-glow: var(--color-weighflow);">
+      <div class="detail-header">
+        <span class="detail-number" style="--num-color: var(--color-weighflow);">01</span>
+        <h3 class="detail-title">WeighFlow IoT</h3>
+        <p class="detail-tagline">Telemetría y Sincronización Blindada de Balanzas Industriales</p>
+      </div>
+
+      <div class="detail-content">
+        <div class="detail-text-col">
+          <h4 class="sub-title">¿Cómo funciona el sistema?</h4>
+          <p class="description">
+            WeighFlow IoT elimina la dependencia de hojas de cálculo manuales o softwares locales obsoletos en los puntos de pesaje de volquetes. El sistema captura la señal física directamente desde los cabezales indicadores de peso en la planta concentradora, garantizando que el peso registrado en la nube coincida milimétricamente con el peso físico del camión.
+          </p>
+
+          <h4 class="sub-title">Flujo del Proceso Operativo:</h4>
+          <ol class="step-list">
+            <li>
+              <strong class="step-num" style="background: rgba(16, 185, 129, 0.1); color: var(--color-weighflow);">1</strong>
+              <span><strong>Extracción Directa:</strong> Un micro-agente ligero programado en <strong>Rust</strong> intercepta el puerto serie RS-232 / TCP/IP del indicador de balanza industrial (ej. Toledo, TI420).</span>
+            </li>
+            <li>
+              <strong class="step-num" style="background: rgba(16, 185, 129, 0.1); color: var(--color-weighflow);">2</strong>
+              <span><strong>Validación Criptográfica:</strong> Se decodifica el protocolo binario (tramas STX/CKS) de la balanza en milisegundos, agregando una firma digital única para evitar la manipulación o alteración manual del peso en tránsito.</span>
+            </li>
+            <li>
+              <strong class="step-num" style="background: rgba(16, 185, 129, 0.1); color: var(--color-weighflow);">3</strong>
+              <span><strong>Sincronización en la Nube:</strong> El agente transmite la información encriptada hacia un *backend* distribuido en <strong>Spring Boot</strong> que almacena el pesaje en base de datos.</span>
+            </li>
+            <li>
+              <strong class="step-num" style="background: rgba(16, 185, 129, 0.1); color: var(--color-weighflow);">4</strong>
+              <span><strong>Visualización en Planta:</strong> El operador en balanza visualiza el ticket digital instantáneamente mediante un *dashboard* dinámico en <strong>Angular</strong> conectado vía WebSockets.</span>
+            </li>
+          </ol>
+        </div>
+
+        <div class="detail-spec-col">
+          <div class="detail-image-container">
+            <img src="/images/weighflow.png" alt="WeighFlow Telemetry Dashboard" class="detail-image" />
+          </div>
+          <div class="spec-card">
+            <h5 class="spec-title">Especificaciones de Arquitectura</h5>
+            <ul class="spec-list">
+              <li><strong>Lenguaje de Telemetría:</strong> Rust (Cero *garbage collector*, latencia sub-milisegundo).</li>
+              <li><strong>Protocolos de Hardware:</strong> TCP/IP, Modbus RTU, STX/CKS, RS-232.</li>
+              <li><strong>Tecnología Backend:</strong> Spring Boot, Spring WebFlux (Reactivo), PostgreSQL.</li>
+              <li><strong>Seguridad:</strong> Firmado criptográfico AES-256 e integración con Keycloak.</li>
+              <li><strong>Valor de Negocio:</strong> Elimina el fraude de peso fantasma al 100% y reduce el tiempo de ciclo de pesaje de 4 minutos a solo 12 segundos.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- VentiFlow Detail -->
+    <div id="detalles-ventiflow" class="detail-block glass-panel" style="--detail-glow: var(--color-ventiflow);">
+      <div class="detail-header">
+        <span class="detail-number" style="--num-color: var(--color-ventiflow);">02</span>
+        <h3 class="detail-title">VentiFlow IoT</h3>
+        <p class="detail-tagline">Optimización Dinámica de Ventilación en Mina Subterránea</p>
+      </div>
+
+      <div class="detail-content">
+        <div class="detail-text-col">
+          <h4 class="sub-title">¿Cómo funciona el sistema?</h4>
+          <p class="description">
+            VentiFlow IoT actúa como el sistema nervioso central de los ventiladores de la mina. En lugar de operar los gigantescos extractores de aire a máxima potencia continuamente (desperdiciando megavatios), el sistema regula la potencia de ventilación de forma automática basándose en la ocupación real de los frentes de trabajo y los niveles de toxicidad detectados por sensores de gas.
+          </p>
+
+          <h4 class="sub-title">Flujo del Proceso Operativo:</h4>
+          <ol class="step-list">
+            <li>
+              <strong class="step-num" style="background: rgba(6, 182, 212, 0.1); color: var(--color-ventiflow);">1</strong>
+              <span><strong>Captura Ambiental Continua:</strong> Módulos IoT capturan continuamente los datos de calidad de aire ($CO, NO_2, O_2$, partículas de polvo) de los sensores distribuidos en las galerías de la mina.</span>
+            </li>
+            <li>
+              <strong class="step-num" style="background: rgba(6, 182, 212, 0.1); color: var(--color-ventiflow);">2</strong>
+              <span><strong>Detección de Personal/Equipos:</strong> Lectores de telemetría detectan el ingreso de maquinaria pesada diésel y personal de minado en frentes específicos.</span>
+            </li>
+            <li>
+              <strong class="step-num" style="background: rgba(6, 182, 212, 0.1); color: var(--color-ventiflow);">3</strong>
+              <span><strong>Algoritmo de Control (VoD):</strong> El backend en **Spring Boot** calcula el volumen de aire mínimo requerido para diluir los contaminantes según normativas vigentes, y envía órdenes de ajuste de frecuencia a los variadores de velocidad de los ventiladores.</span>
+            </li>
+            <li>
+              <strong class="step-num" style="background: rgba(6, 182, 212, 0.1); color: var(--color-ventiflow);">4</strong>
+              <span><strong>Monitoreo de Sala EHS:</strong> El centro de control visualiza la concentración de gases en un mapa interactivo en 3D en **Angular**, alertando automáticamente de evacuaciones localizadas si se superan umbrales de peligro.</span>
+            </li>
+          </ol>
+        </div>
+
+        <div class="detail-spec-col">
+          <div class="detail-image-container">
+            <img src="/images/ventiflow.png" alt="VentiFlow Airflow Sensors" class="detail-image" />
+          </div>
+          <div class="spec-card">
+            <h5 class="spec-title">Especificaciones de Arquitectura</h5>
+            <ul class="spec-list">
+              <li><strong>Integración Industrial:</strong> Controladores PLC, protocolos Modbus/TCP y OPC UA.</li>
+              <li><strong>Procesamiento Cloud:</strong> Arquitectura de microservicios reactivos en Spring WebFlux.</li>
+              <li><strong>Procesamiento en el Edge:</strong> Pasarelas en Rust para filtrado local y resiliencia ante pérdida de internet.</li>
+              <li><strong>Analítica EHS:</strong> Cuadros de mando predictivos integrados en Angular con visualización SVG de túneles.</li>
+              <li><strong>Valor de Negocio:</strong> Ahorro comprobado de hasta un 40% en costos de energía eléctrica mensual y eliminación de riesgos por asfixia o intoxicación.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- LoadGrade Detail -->
+    <div id="detalles-loadgrade" class="detail-block glass-panel" style="--detail-glow: var(--color-loadgrade);">
+      <div class="detail-header">
+        <span class="detail-number" style="--num-color: var(--color-loadgrade);">03</span>
+        <h3 class="detail-title">LoadGrade PaaS</h3>
+        <p class="detail-tagline">Sistema Inteligente de Despacho y Prevención de Mezcla de Mineral</p>
+      </div>
+
+      <div class="detail-content">
+        <div class="detail-text-col">
+          <h4 class="sub-title">¿Cómo funciona el sistema?</h4>
+          <p class="description">
+            LoadGrade PaaS asegura que cada volquete deposite su carga exactamente donde corresponde. En minería a tajo abierto o subterránea, confundir mineral de alta ley con desmonte representa pérdidas financieras brutales. LoadGrade digitaliza el despacho (*dispatch*) guiando dinámicamente a los choferes y validando su ubicación exacta de descarga mediante geocercas satelitales ultra precisas.
+          </p>
+
+          <h4 class="sub-title">Flujo del Proceso Operativo:</h4>
+          <ol class="step-list">
+            <li>
+              <strong class="step-num" style="background: rgba(249, 115, 22, 0.1); color: var(--color-loadgrade);">1</strong>
+              <span><strong>Asignación en Pala:</strong> La excavadora o pala escanea el tag NFC/QR del volquete al cargarlo y define el tipo de mineral (Alta Ley, Media Ley o Desmonte) asignándole un punto de descarga.</span>
+            </li>
+            <li>
+              <strong class="step-num" style="background: rgba(249, 115, 22, 0.1); color: var(--color-loadgrade);">2</strong>
+              <span><strong>Guía Interactiva:</strong> El chofer ve su ruta en tiempo real a través de una aplicación robusta en **Kotlin/Flutter** montada en la cabina del volquete, con alertas sonoras en su idioma.</span>
+            </li>
+            <li>
+              <strong class="step-num" style="background: rgba(249, 115, 22, 0.1); color: var(--color-loadgrade);">3</strong>
+              <span><strong>Verificación por Geocercas:</strong> Al llegar al botadero o chancadora, el motor de geolocalización en la nube procesa la coordenada GPS del camión.</span>
+            </li>
+            <li>
+              <strong class="step-num" style="background: rgba(249, 115, 22, 0.1); color: var(--color-loadgrade);">4</strong>
+              <span><strong>Prevención de Descarga:</strong> Si el volquete con desmonte intenta descargar en la chancadora de mineral, el sistema emite una bocina de alarma masiva en cabina y bloquea el registro operativo, alertando inmediatamente al despacho central.</span>
+            </li>
+          </ol>
+        </div>
+
+        <div class="detail-spec-col">
+          <div class="detail-image-container">
+            <img src="/images/loadgrade.png" alt="LoadGrade Dispatch Geofencing" class="detail-image" />
+          </div>
+          <div class="spec-card">
+            <h5 class="spec-title">Especificaciones de Arquitectura</h5>
+            <ul class="spec-list">
+              <li><strong>Core del Backend:</strong> Spring Boot y algoritmos de ruteo basados en teoría de grafos.</li>
+              <li><strong>Base de Datos Espacial:</strong> PostgreSQL con extensión PostGIS para geocercas dinámicas en tiempo real.</li>
+              <li><strong>Aplicación de Cabina:</strong> Kotlin Nativo (Android Rugged Devices) y soporte Offline First con SQLite.</li>
+              <li><strong>Precisión de Posicionamiento:</strong> GPS diferencial RTK de precisión centimétrica.</li>
+              <li><strong>Valor de Negocio:</strong> Cero pérdidas por mineral de alta ley descartado como desmonte y optimización del tráfico de flota en un 15%.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- TireTrack Detail -->
+    <div id="detalles-tiretrack" class="detail-block glass-panel" style="--detail-glow: var(--color-tiretrack);">
+      <div class="detail-header">
+        <span class="detail-number" style="--num-color: var(--color-tiretrack);">04</span>
+        <h3 class="detail-title">TireTrack IoT</h3>
+        <p class="detail-tagline">Telemetría Térmica Predictiva de Neumáticos de Alto Costo OTR</p>
+      </div>
+
+      <div class="detail-content">
+        <div class="detail-text-col">
+          <h4 class="sub-title">¿Cómo funciona el sistema?</h4>
+          <p class="description">
+            TireTrack IoT protege los activos consumibles más caros de la flota de acarreo pesado: los neumáticos OTR. A través de sensores inalámbricos de presión y temperatura instalados en las válvulas de las llantas, TireTrack monitorea continuamente la salud térmica de los neumáticos durante el ciclo de acarreo, detectando sobrecalentamientos peligrosos antes de que ocurran fallas catastróficas.
+          </p>
+
+          <h4 class="sub-title">Flujo del Proceso Operativo:</h4>
+          <ol class="step-list">
+            <li>
+              <strong class="step-num" style="background: rgba(239, 68, 68, 0.1); color: var(--color-tiretrack);">1</strong>
+              <span><strong>Monitoreo Continuo TPMS:</strong> Sensores de radiofrecuencia (RF) integrados miden la presión interna y temperatura del neumático a 100 °C de forma ininterrumpida.</span>
+            </li>
+            <li>
+              <strong class="step-num" style="background: rgba(239, 68, 68, 0.1); color: var(--color-tiretrack);">2</strong>
+              <span><strong>Procesamiento en Chasis:</strong> Una pasarela de telemetría a bordo (desarrollada en **Rust**) recopila las tramas de los sensores y filtra ruidos de interferencia electromagnética.</span>
+            </li>
+            <li>
+              <strong class="step-num" style="background: rgba(239, 68, 68, 0.1); color: var(--color-tiretrack);">3</strong>
+              <span><strong>Análisis de Series Temporales:</strong> Los datos históricos y en tiempo real son procesados por el backend en la nube, detectando micro-fugas imperceptibles a simple vista y tendencias anómalas de calentamiento.</span>
+            </li>
+            <li>
+              <strong class="step-num" style="background: rgba(239, 68, 68, 0.1); color: var(--color-tiretrack);">4</strong>
+              <span><strong>Alertas Predictivas EHS:</strong> Si un neumático alcanza umbrales críticos de temperatura (TKPH), el despachador en Angular recibe una alerta predictiva para desviar el camión a enfriamiento temporal, evitando que el neumático reviente catastróficamente.</span>
+            </li>
+          </ol>
+        </div>
+
+        <div class="detail-spec-col">
+          <div class="detail-image-container">
+            <img src="/images/tiretrack.png" alt="TireTrack OTR TPMS Telemetry" class="detail-image" />
+          </div>
+          <div class="spec-card">
+            <h5 class="spec-title">Especificaciones de Arquitectura</h5>
+            <ul class="spec-list">
+              <li><strong>Captura IoT Edge:</strong> Gateway en Rust embebido en el vehículo minero con conexión RF y CanBus.</li>
+              <li><strong>Motor de Datos:</strong> TimescaleDB (PostgreSQL optimizado para series de tiempo de millones de lecturas).</li>
+              <li><strong>Arquitectura Backend:</strong> Java 21, Spring Boot, Spring AMQP (RabbitMQ) para ingesta masiva de telemetría.</li>
+              <li><strong>Visualización Web:</strong> Angular con bibliotecas de gráficos vectoriales reactivos de alta precisión.</li>
+              <li><strong>Valor de Negocio:</strong> Extiende la vida útil de los costosos neumáticos OTR en un 25% y elimina accidentes fatales por explosión de llantas de alta presión.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .product-details-section {
+    padding: 80px 0;
+    position: relative;
+    z-index: 10;
+  }
+
+  .section-header {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px auto;
+  }
+
+  .section-title {
+    font-size: 38px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    color: #ffffff;
+  }
+
+  .section-subtitle {
+    font-size: 16px;
+    color: var(--text-secondary);
+  }
+
+  .details-container {
+    display: flex;
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  /* Bloque de detalle por producto */
+  .detail-block {
+    padding: 48px;
+    position: relative;
+    scroll-margin-top: 100px;
+  }
+
+  .detail-block:hover {
+    border-color: var(--detail-glow);
+    box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.01), 0 5px 30px rgba(0, 0, 0, 0.4);
+  }
+
+  .detail-header {
+    margin-bottom: 36px;
+    position: relative;
+  }
+
+  .detail-number {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 48px;
+    font-weight: 900;
+    line-height: 1;
+    color: var(--num-color);
+    opacity: 0.8;
+    display: block;
+    margin-bottom: 8px;
+    text-shadow: 0 0 20px rgba(var(--num-color), 0.2);
+  }
+
+  .detail-title {
+    font-size: 28px;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 6px;
+  }
+
+  .detail-tagline {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--text-secondary);
+  }
+
+  .detail-content {
+    display: grid;
+    grid-template-columns: 1.3fr 0.7fr;
+    gap: 40px;
+  }
+
+  .sub-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 16px;
+    margin-top: 24px;
+  }
+
+  .sub-title:first-of-type {
+    margin-top: 0;
+  }
+
+  .description {
+    font-size: 15px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  /* Listado de pasos */
+  .step-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .step-list li {
+    display: flex;
+    gap: 16px;
+    font-size: 14.5px;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .step-list li span {
+    flex-grow: 1;
+  }
+
+  .step-list li strong {
+    color: var(--text-primary);
+  }
+
+  .step-num {
+    flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  /* Imagen técnica y contenedor */
+  .detail-image-container {
+    width: 100%;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    background: rgba(255, 255, 255, 0.02);
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.4);
+    margin-bottom: 24px;
+    transition: var(--transition-smooth);
+    aspect-ratio: 1 / 1;
+    position: relative;
+    z-index: 1;
+  }
+
+  .detail-block:hover .detail-image-container {
+    border-color: var(--detail-glow);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.01), 0 0 15px rgba(var(--detail-glow), 0.15);
+  }
+
+  .detail-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .detail-image-container:hover .detail-image {
+    transform: scale(1.06);
+  }
+
+  .detail-spec-col {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    height: auto;
+  }
+
+  /* Columna de especificaciones */
+  .spec-card {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 28px;
+    height: auto;
+  }
+
+  .spec-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    padding-bottom: 10px;
+    letter-spacing: 0.03em;
+  }
+
+  .spec-list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .spec-list li {
+    font-size: 13px;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .spec-list li strong {
+    display: block;
+    color: var(--text-primary);
+    font-size: 13.5px;
+    margin-bottom: 4px;
+  }
+
+  /* Responsive */
+  @media (max-width: 992px) {
+    .detail-content {
+      grid-template-columns: 1fr;
+      gap: 30px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .detail-block {
+      padding: 24px;
+    }
+    .detail-title {
+      font-size: 24px;
+    }
+  }
+</style>
