@@ -1,8 +1,28 @@
 ---
-import MainLayouts from '../layouts/MainLayout.astro';
+import MainLayout from '../layouts/MainLayout.astro';
 ---
 
-<MainLayouts title="About Page">
-    <h1>About</h1>
-</MainLayouts>
-
+<MainLayout title="SteepDev — Sobre Mí">
+  <section class="hero-section animate-fade-in" style="max-width: 720px; margin: 0 auto; padding: 4rem 1.5rem;">
+    <span class="section-label">// Sobre mí</span>
+    <h1 class="hero-title" style="font-size: clamp(1.75rem, 4vw, 2.5rem); margin-top: 1rem;">
+      Desarrollador frontend especializado en sistemas de gestión
+    </h1>
+    <p class="hero-subtitle" style="margin-top: 1.25rem; text-align: left;">
+      Soy Steep, un desarrollador freelance de Lima, Perú. Me especializo en construir sistemas web de gestión
+      para empresas que necesitan digitalizar sus procesos: ERP, inventarios, CRM y dashboards.
+    </p>
+    <p class="hero-subtitle" style="margin-top: 1rem; text-align: left;">
+      Trabajo con tecnologías modernas como Astro, React, TypeScript y Node.js.
+      Cada proyecto lo desarrollo con código limpio, diseño centrado en el usuario y entregas puntuales.
+    </p>
+    <div class="hero-ctas" style="margin-top: 2rem;">
+      <a href="/#servicios" class="btn btn--accent">
+        <span>Ver Servicios</span>
+      </a>
+      <a href="/#cotizar" class="btn btn--ghost">
+        Cotizar Proyecto
+      </a>
+    </div>
+  </section>
+</MainLayout>

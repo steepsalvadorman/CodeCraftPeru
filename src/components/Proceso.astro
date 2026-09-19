@@ -1,0 +1,67 @@
+---
+const pasos = [
+  {
+    num: '01',
+    title: 'Diagnóstico',
+    desc: 'Conversamos sobre tu empresa, procesos actuales y qué necesitas digitalizar. Sin compromiso.',
+    time: '1-2 días',
+    icon: 'M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z',
+  },
+  {
+    num: '02',
+    title: 'Propuesta',
+    desc: 'Te presento una cotización detallada con alcance, tiempos, tecnologías y costo del proyecto.',
+    time: '2-3 días',
+    icon: 'M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z',
+  },
+  {
+    num: '03',
+    title: 'Desarrollo',
+    desc: 'Construyo tu sistema por sprints semanales. Ves avances constantes y das feedback en cada etapa.',
+    time: '2-6 semanas',
+    icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
+  },
+  {
+    num: '04',
+    title: 'Entrega & Soporte',
+    desc: 'Despliego el sistema, capacito a tu equipo y ofrezco soporte post-lanzamiento incluido.',
+    time: '1 semana',
+    icon: 'M5 13l4 4L19 7',
+  },
+];
+---
+
+<section id="proceso" class="proceso-section">
+  <div class="section-header">
+    <span class="section-label">// Proceso</span>
+    <h2 class="section-title">Cómo trabajo</h2>
+    <p class="section-subtitle">
+      Un proceso claro y transparente, desde la primera conversación hasta la entrega final.
+    </p>
+  </div>
+
+  <div class="proceso-timeline">
+    {pasos.map((paso, i) => (
+      <div class="proceso-step" style={`animation-delay: ${i * 0.12}s;`}>
+        <div class="proceso-step__connector">
+          <div class="proceso-step__dot"></div>
+          {i < pasos.length - 1 && <div class="proceso-step__line"></div>}
+        </div>
+
+        <div class="proceso-step__content">
+          <div class="proceso-step__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round">
+              <path d={paso.icon} />
+            </svg>
+          </div>
+          <div class="proceso-step__info">
+            <span class="proceso-step__num">Paso {paso.num}</span>
+            <h3 class="proceso-step__title">{paso.title}</h3>
+            <p class="proceso-step__desc">{paso.desc}</p>
+          </div>
+          <span class="proceso-step__time">{paso.time}</span>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>

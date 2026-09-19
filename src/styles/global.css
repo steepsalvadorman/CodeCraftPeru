@@ -1,55 +1,88 @@
-/* Design System para CodeCraft Perú - Industrial & Mining PaaS */
-
-@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap');
+/* Design System — SteepDev Freelance */
 
 :root {
-  /* Paleta de Colores de Alta Tecnología */
-  --bg-deep: #07090e;
-  --bg-surface: rgba(15, 22, 36, 0.7);
-  --bg-surface-hover: rgba(23, 32, 51, 0.85);
-  --border-color: rgba(255, 255, 255, 0.08);
-  --border-color-hover: rgba(255, 255, 255, 0.18);
-  
-  --text-primary: #f3f4f6;
-  --text-secondary: #9ca3af;
+  --bg-deep: #0a0a0f;
+  --bg-surface: rgba(18, 20, 28, 0.75);
+  --bg-surface-hover: rgba(28, 32, 44, 0.9);
+  --bg-card: rgba(255, 255, 255, 0.025);
+  --border-color: rgba(255, 255, 255, 0.07);
+  --border-color-hover: rgba(255, 255, 255, 0.14);
+
+  --text-primary: #f0f2f5;
+  --text-secondary: #9aa0ae;
   --text-muted: #6b7280;
 
-  /* Colores de Marca y Acento de los Productos PaaS */
-  --color-weighflow: #10b981;    /* Emerald - Consistencia y Precisión */
-  --color-ventiflow: #06b6d4;    /* Cyan - Aire y Seguridad */
-  --color-loadgrade: #f97316;    /* Orange - Logística y Energía */
-  --color-tiretrack: #ef4444;    /* Red - Presión y Térmico */
+  --accent-green: #00ff88;
+  --accent-green-dim: rgba(0, 255, 136, 0.12);
+  --accent-green-glow: rgba(0, 255, 136, 0.25);
+  --accent-red: #ff4444;
+  --accent-red-dim: rgba(255, 68, 68, 0.12);
+  --accent-amber: #ffb800;
+  --accent-blue: #4da6ff;
 
-  --color-primary: #ced4da;
-  
-  /* Fuentes */
-  --font-main: 'Outfit', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
+  --font-display: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
+  --font-body: 'Inter', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
 
-  /* Transiciones */
-  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-fast: all 0.2s ease;
+  --transition-smooth: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    background-color 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: transform 0.2s ease, opacity 0.2s ease, border-color 0.2s ease;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --radius-full: 9999px;
 }
 
-* {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 88px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+section[id] {
+  scroll-margin-top: 88px;
+}
+
 body {
-  font-family: var(--font-main);
+  font-family: var(--font-body);
   background-color: var(--bg-deep);
   color: var(--text-primary);
   min-height: 100vh;
   overflow-x: hidden;
-  line-height: 1.6;
+  line-height: 1.65;
+  font-feature-settings: 'kern' 1, 'liga' 1;
 }
 
-/* Scrollbar Personalizada Premium */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+/* Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
@@ -57,17 +90,16 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.15);
-  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-full);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.22);
 }
 
-/* Ajuste del Contenido Principal para acomodar el Navbar Fijo */
 .main-content {
-  padding-top: 90px;
+  padding-top: 72px;
   position: relative;
   z-index: 10;
   width: 100%;
@@ -75,32 +107,35 @@ body {
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px;
+  contain: layout style;
 }
 
-/* Efecto de Desenfoque y Fondo (Glassmorphic) */
-.glass-panel {
+/* Terminal / code window panel */
+.terminal-panel {
   background: var(--bg-surface);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--border-color);
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   transition: var(--transition-smooth);
+  contain: layout style paint;
+  will-change: transform;
 }
 
-.glass-panel:hover {
+.terminal-panel:hover {
   border-color: var(--border-color-hover);
   background: var(--bg-surface-hover);
 }
 
-/* Botones Premium */
-.btn-premium {
+/* Buttons */
+.btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
   padding: 12px 28px;
-  border-radius: 12px;
-  font-family: var(--font-main);
+  border-radius: var(--radius-md);
+  font-family: var(--font-body);
   font-weight: 600;
   font-size: 15px;
   text-decoration: none;
@@ -109,45 +144,125 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.1);
   background: rgba(255, 255, 255, 0.05);
   color: var(--text-primary);
+  will-change: transform;
 }
 
-.btn-premium:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(255, 255, 255, 0.25);
+.btn:hover {
+  background: rgba(255, 255, 255, 0.12);
+  border-color: rgba(255, 255, 255, 0.22);
   transform: translateY(-2px);
 }
 
-/* Títulos con Degradados Modernos */
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn--accent {
+  background: var(--accent-green-dim);
+  border: 1px solid rgba(0, 255, 136, 0.3);
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(0, 255, 136, 0.08);
+}
+
+.btn--accent:hover {
+  background: rgba(0, 255, 136, 0.2);
+  border-color: rgba(0, 255, 136, 0.5);
+  box-shadow: 0 4px 28px rgba(0, 255, 136, 0.18);
+}
+
+.btn--ghost {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.btn--ghost:hover {
+  background: rgba(255, 255, 255, 0.06);
+}
+
 .gradient-text {
-  background: linear-gradient(135deg, #ffffff 30%, #a3a3a3 100%);
+  background: linear-gradient(135deg, #ffffff 25%, #a3a3a3 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Animaciones sutiles de entrada */
 @keyframes fadeInUp {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translate3d(0, 20px, 0);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
 .animate-fade-in {
-  animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  will-change: transform, opacity;
 }
 
-/* Estilos de Insignias Técnicas */
 .tech-tag {
   font-family: var(--font-mono);
   font-size: 11px;
   padding: 4px 10px;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 6px;
+  border-radius: var(--radius-sm);
   color: var(--text-secondary);
+}
+
+/* Section labels */
+.section-label {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-green);
+  margin-bottom: 12px;
+}
+
+.section-title {
+  font-size: clamp(28px, 4vw, 38px);
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin-bottom: 12px;
+  color: #ffffff;
+  line-height: 1.15;
+}
+
+.section-subtitle {
+  font-size: 15px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: 560px;
+}
+
+/* Performance: respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .animate-fade-in {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .terminal-panel,
+  .btn {
+    will-change: auto;
+  }
 }

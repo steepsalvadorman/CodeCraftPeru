@@ -1,68 +1,156 @@
 ---
-import '../styles/navbar.css'; // Importa el CSS de la navbar
+import Logo from './Logo.astro';
+
+const navItems = [
+  { href: '#hero', label: 'Inicio', section: 'hero' },
+  { href: '#servicios', label: 'Servicios', section: 'servicios' },
+  { href: '#proceso', label: 'Proceso', section: 'proceso' },
+  { href: '#cotizar', label: 'Cotizar', section: 'cotizar' },
+];
 ---
 
-<header class="header">
-  <div class="logo-area">
-    <!-- Isotipo Tecnológico SVG Embebido -->
-    <svg class="logo-icon" viewBox="0 0 128 128" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="navNeonRed" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stop-color="#ff6b6b" />
-          <stop offset="100%" stop-color="#b91c1c" />
-        </linearGradient>
-      </defs>
-      <polygon points="64,10 116,40 116,96 64,126 12,96 12,40" stroke="url(#navNeonRed)" stroke-width="8" fill="#07090e" stroke-linejoin="round" />
-      <path d="M46,44 L28,64 L46,84" stroke="#ff6b6b" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-      <path d="M82,44 L100,64 L82,84" stroke="#ff6b6b" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-      <circle cx="64" cy="64" r="14" stroke="#10b981" stroke-width="6" fill="none" />
-      <circle cx="64" cy="64" r="6" fill="#10b981" />
-    </svg>
-    
-    <a href="#" class="logo">
-      <span class="logo-code">&lt;</span>CodeCraft<span class="logo-country">Perú</span><span class="logo-code">&gt;</span>
-    </a>
-    <span class="logo-badge-status">ENGINE ACTIVE</span>
-  </div>
+<header class="header" id="site-header">
+  <div class="header-inner">
+    <Logo variant="full" size="md" href="/" showTagline={false} animated={false} />
 
-  <nav class="navbar" id="navbar">
-    <div class="nav-links">
-      <a href="#"><span class="nav-num">01.</span>/inicio</a>
-      <a href="#paas-suite"><span class="nav-num">02.</span>/soluciones-paas</a>
-      <a href="#detalles-tecnicos"><span class="nav-num">03.</span>/detalles-tecnicos</a>
-      <a href="#contacto"><span class="nav-num">04.</span>/contacto</a>
-    </div>
-    <a href="#contacto" class="nav-cta">
-      <span>Solicitar Factibilidad</span>
-    </a>
-  </nav>
+    <nav class="navbar" id="navbar" aria-label="Navegación principal">
+      <ul class="nav-links" id="nav-links">
+        {navItems.map((item) => (
+          <li class="nav-item">
+            <a
+              href={item.href}
+              class="nav-link"
+              data-section={item.section}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
 
-  <div class="hamburger" id="hamburger" aria-label="Abrir Menú">
-    <div class="bar bar1"></div>
-    <div class="bar bar2"></div>
-    <div class="bar bar3"></div>
+      <a href="#cotizar" class="nav-cta">
+        Cotizar Proyecto
+      </a>
+    </nav>
+
+    <button class="hamburger" id="hamburger" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="navbar">
+      <span class="bar bar1"></span>
+      <span class="bar bar2"></span>
+      <span class="bar bar3"></span>
+    </button>
   </div>
 </header>
 
 <script>
-  document.addEventListener('DOMContentLoaded', () => {
-    const hamburger = document.getElementById('hamburger');
-    const navbar = document.getElementById('navbar');
+  const header = document.getElementById('site-header');
+  const hamburger = document.getElementById('hamburger');
+  const navbar = document.getElementById('navbar');
+  const navLinks = navbar?.querySelectorAll<HTMLAnchorElement>('.nav-link');
 
-    if (hamburger && navbar) {
-      hamburger.addEventListener('click', () => {
-        hamburger.classList.toggle('active');
-        navbar.classList.toggle('active');
-      });
+  let ticking = false;
+  let isNavigating = false;
+  let navigateTimer: ReturnType<typeof setTimeout> | undefined;
 
-      // Cerrar el menú móvil al hacer clic en un enlace
-      const links = navbar.querySelectorAll('a');
-      links.forEach(link => {
-        link.addEventListener('click', () => {
-          hamburger.classList.remove('active');
-          navbar.classList.remove('active');
-        });
+  function getHeaderOffset() {
+    return (header?.offsetHeight ?? 72) + 16;
+  }
+
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        header?.classList.toggle('header--scrolled', window.scrollY > 24);
+        ticking = false;
       });
+      ticking = true;
     }
+  }, { passive: true });
+
+  function setActiveLink(sectionId: string) {
+    navLinks?.forEach((link) => {
+      const isActive = link.dataset.section === sectionId;
+      link.classList.toggle('is-active', isActive);
+      if (isActive) {
+        link.setAttribute('aria-current', 'page');
+      } else {
+        link.removeAttribute('aria-current');
+      }
+    });
+  }
+
+  function scrollToSection(sectionId: string) {
+    const target = document.getElementById(sectionId);
+    if (!target) return;
+
+    isNavigating = true;
+    clearTimeout(navigateTimer);
+    setActiveLink(sectionId);
+
+    const top = Math.max(0, target.getBoundingClientRect().top + window.scrollY - getHeaderOffset());
+    window.scrollTo({ top, behavior: 'smooth' });
+    history.replaceState(null, '', `#${sectionId}`);
+
+    const finishNavigation = () => {
+      isNavigating = false;
+      setActiveLink(sectionId);
+    };
+
+    if ('onscrollend' in window) {
+      window.addEventListener('scrollend', finishNavigation, { once: true });
+    } else {
+      navigateTimer = setTimeout(finishNavigation, 750);
+    }
+  }
+
+  const sections = ['hero', 'servicios', 'proceso', 'cotizar']
+    .map((id) => document.getElementById(id))
+    .filter(Boolean) as HTMLElement[];
+
+  if (sections.length && navLinks?.length) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (isNavigating) return;
+        const visible = entries
+          .filter((e) => e.isIntersecting)
+          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+        if (visible?.target.id) setActiveLink(visible.target.id);
+      },
+      { rootMargin: `-${getHeaderOffset()}px 0px -55% 0px`, threshold: [0, 0.1, 0.3, 0.5] }
+    );
+    sections.forEach((s) => observer.observe(s));
+
+    if (window.scrollY < 80) {
+      setActiveLink('hero');
+    }
+
+    const initialHash = window.location.hash.slice(1);
+    if (initialHash && document.getElementById(initialHash)) {
+      requestAnimationFrame(() => scrollToSection(initialHash));
+    }
+  }
+
+  navbar?.querySelectorAll<HTMLAnchorElement>('a[href^="#"]').forEach((link) => {
+    link.addEventListener('click', (e) => {
+      const href = link.getAttribute('href');
+      if (!href || href === '#') return;
+      e.preventDefault();
+      const sectionId = link.dataset.section ?? href.slice(1);
+      scrollToSection(sectionId);
+
+      hamburger?.classList.remove('active');
+      navbar?.classList.remove('active');
+      document.body.classList.remove('nav-open');
+      hamburger?.setAttribute('aria-expanded', 'false');
+      hamburger?.setAttribute('aria-label', 'Abrir menú');
+    });
   });
+
+  if (hamburger && navbar) {
+    hamburger.addEventListener('click', () => {
+      const isOpen = hamburger.classList.toggle('active');
+      navbar.classList.toggle('active');
+      document.body.classList.toggle('nav-open', isOpen);
+      hamburger.setAttribute('aria-expanded', String(isOpen));
+      hamburger.setAttribute('aria-label', isOpen ? 'Cerrar menú' : 'Abrir menú');
+    });
+  }
 </script>

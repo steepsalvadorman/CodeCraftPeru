@@ -1,0 +1,163 @@
+---
+---
+
+<section id="cotizar" class="cotizar-section">
+  <div class="cotizar-grid">
+    <div class="info-column">
+      <div class="badge-accent"><span class="badge-text">COTIZACIÓN GRATUITA</span></div>
+      <h2 class="section-title">Cotiza tu proyecto</h2>
+      <p class="contact-description">Cuéntame qué necesita tu empresa y te respondo en menos de 48 horas con una propuesta detallada: alcance, tecnologías, tiempos y costo.</p>
+      <div class="benefits-list">
+        <div class="benefit-item">
+          <div class="benefit-icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" class="benefit-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+          <div><h4 class="benefit-title">Respuesta en 48 horas</h4><p class="benefit-desc">Cotización detallada con alcance, tiempos y costo estimado.</p></div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" class="benefit-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+          <div><h4 class="benefit-title">Sin compromiso</h4><p class="benefit-desc">La cotización es gratuita. Tú decides si avanzamos.</p></div>
+        </div>
+        <div class="benefit-item">
+          <div class="benefit-icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" class="benefit-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
+          <div><h4 class="benefit-title">Prototipo en 2 semanas</h4><p class="benefit-desc">Para proyectos grandes, entrego un MVP para validar antes del desarrollo completo.</p></div>
+        </div>
+      </div>
+      <div class="contact-direct">
+        <p class="contact-direct__label">¿Prefieres contacto directo?</p>
+        <a href="mailto:steepbsm@gmail.com" class="contact-direct__email">steepbsm@gmail.com</a>
+      </div>
+    </div>
+
+    <div class="form-column">
+      <div class="terminal-panel cotizar-form-card">
+        <div class="form-header">
+          <div class="form-header__dots"><span class="dot dot--red"></span><span class="dot dot--yellow"></span><span class="dot dot--green"></span></div>
+          <span class="form-header__title">nueva-cotizacion.ts</span>
+        </div>
+        <h3 class="form-card-title">Solicitar Cotización</h3>
+        <p class="form-card-subtitle">Te contacto en menos de 48 horas hábiles.</p>
+
+        <form id="cotizar-form" class="cotizar-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullName">Nombre Completo</label>
+              <input type="text" id="fullName" name="fullName" required placeholder="Tu nombre" class="form-input" />
+            </div>
+            <div class="form-group">
+              <label for="company">Empresa</label>
+              <input type="text" id="company" name="company" required placeholder="Nombre de la empresa" class="form-input" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required placeholder="tu@empresa.com" class="form-input" />
+            </div>
+            <div class="form-group">
+              <label for="phone">Teléfono / WhatsApp</label>
+              <input type="tel" id="phone" name="phone" placeholder="+51 999 999 999" class="form-input" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="serviceType">Tipo de Proyecto</label>
+            <select id="serviceType" name="serviceType" required class="form-input form-select">
+              <option value="" disabled selected>Selecciona el tipo de sistema</option>
+              <option value="erp">Sistema ERP / Gestión Empresarial</option>
+              <option value="inventarios">Control de Inventarios</option>
+              <option value="crm">CRM / Gestión Comercial</option>
+              <option value="dashboard">Dashboard / Business Intelligence</option>
+              <option value="integracion">Integración de Sistemas</option>
+              <option value="otro">Otro / No estoy seguro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="budget">Presupuesto Estimado (USD)</label>
+            <select id="budget" name="budget" class="form-input form-select">
+              <option value="" disabled selected>Selecciona un rango</option>
+              <option value="<500">Menos de $500</option>
+              <option value="500-1500">$500 — $1,500</option>
+              <option value="1500-3000">$1,500 — $3,000</option>
+              <option value="3000-5000">$3,000 — $5,000</option>
+              <option value="5000+">Más de $5,000</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="message">Describe tu proyecto</label>
+            <textarea id="message" name="message" rows="4" required placeholder="¿Qué procesos quieres digitalizar? ¿Cuántos usuarios? ¿Tienes algún sistema actual?" class="form-input form-textarea"></textarea>
+          </div>
+          <button type="submit" class="btn btn--accent btn-submit">
+            <span>Enviar Solicitud de Cotización</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="submit-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+          </button>
+        </form>
+
+        <div id="success-toast" class="success-toast hidden">
+          <div class="toast-icon-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" class="toast-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+          </div>
+          <div class="toast-content">
+            <h4 class="toast-title">¡Cotización Enviada!</h4>
+            <p class="toast-desc">Te responderé en menos de 48 horas hábiles.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('cotizar-form') as HTMLFormElement;
+    const toast = document.getElementById('success-toast');
+    const submitBtn = form?.querySelector('.btn-submit') as HTMLButtonElement;
+    const submitText = submitBtn?.querySelector('span');
+
+    if (form && toast) {
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (submitBtn && submitText) {
+          submitBtn.disabled = true;
+          submitText.textContent = 'Enviando...';
+        }
+
+        const formData = new FormData(form);
+        const requestData = {
+          Nombre: formData.get('fullName'),
+          Empresa: formData.get('company'),
+          Email: formData.get('email'),
+          Telefono: formData.get('phone'),
+          TipoProyecto: formData.get('serviceType'),
+          Presupuesto: formData.get('budget'),
+          Mensaje: formData.get('message'),
+          _subject: 'Nueva Cotización — SteepDev Freelance'
+        };
+
+        fetch('https://formsubmit.co/ajax/steepbsm@gmail.com', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(requestData)
+        })
+        .then(() => {
+          form.classList.add('hidden');
+          toast.classList.remove('hidden');
+          form.reset();
+          if (submitBtn && submitText) {
+            submitBtn.disabled = false;
+            submitText.textContent = 'Enviar Solicitud de Cotización';
+          }
+          setTimeout(() => { toast.classList.add('hidden'); form.classList.remove('hidden'); }, 8000);
+        })
+        .catch((err) => {
+          console.error('Error enviando formulario:', err);
+          form.classList.add('hidden');
+          toast.classList.remove('hidden');
+          form.reset();
+          if (submitBtn && submitText) {
+            submitBtn.disabled = false;
+            submitText.textContent = 'Enviar Solicitud de Cotización';
+          }
+          setTimeout(() => { toast.classList.add('hidden'); form.classList.remove('hidden'); }, 8000);
+        });
+      });
+    }
+  });
+</script>
