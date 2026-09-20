@@ -49,16 +49,40 @@ const navItems = [
 
   let ticking = false;
   let isNavigating = false;
+  let activeSectionId = '';
   let navigateTimer: ReturnType<typeof setTimeout> | undefined;
+
+  const sections = ['hero', 'servicios', 'proceso', 'cotizar']
+    .map((id) => document.getElementById(id))
+    .filter(Boolean) as HTMLElement[];
 
   function getHeaderOffset() {
     return (header?.offsetHeight ?? 72) + 16;
+  }
+
+  function getActiveSectionId(): string {
+    const marker = window.scrollY + getHeaderOffset() + 48;
+    let activeId = sections[0]?.id ?? 'hero';
+
+    for (const section of sections) {
+      if (section.offsetTop <= marker) {
+        activeId = section.id;
+      }
+    }
+
+    return activeId;
+  }
+
+  function updateActiveSectionFromScroll() {
+    if (isNavigating || !sections.length) return;
+    setActiveLink(getActiveSectionId());
   }
 
   window.addEventListener('scroll', () => {
     if (!ticking) {
       requestAnimationFrame(() => {
         header?.classList.toggle('header--scrolled', window.scrollY > 24);
+        updateActiveSectionFromScroll();
         ticking = false;
       });
       ticking = true;
@@ -66,6 +90,9 @@ const navItems = [
   }, { passive: true });
 
   function setActiveLink(sectionId: string) {
+    if (sectionId === activeSectionId) return;
+    activeSectionId = sectionId;
+
     navLinks?.forEach((link) => {
       const isActive = link.dataset.section === sectionId;
       link.classList.toggle('is-active', isActive);
@@ -101,26 +128,8 @@ const navItems = [
     }
   }
 
-  const sections = ['hero', 'servicios', 'proceso', 'cotizar']
-    .map((id) => document.getElementById(id))
-    .filter(Boolean) as HTMLElement[];
-
   if (sections.length && navLinks?.length) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        if (isNavigating) return;
-        const visible = entries
-          .filter((e) => e.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible?.target.id) setActiveLink(visible.target.id);
-      },
-      { rootMargin: `-${getHeaderOffset()}px 0px -55% 0px`, threshold: [0, 0.1, 0.3, 0.5] }
-    );
-    sections.forEach((s) => observer.observe(s));
-
-    if (window.scrollY < 80) {
-      setActiveLink('hero');
-    }
+    updateActiveSectionFromScroll();
 
     const initialHash = window.location.hash.slice(1);
     if (initialHash && document.getElementById(initialHash)) {

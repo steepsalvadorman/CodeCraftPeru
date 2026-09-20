@@ -32,7 +32,7 @@ const pasos = [
 ---
 
 <section id="proceso" class="proceso-section">
-  <div class="section-header">
+  <div class="section-header reveal">
     <span class="section-label">Proceso</span>
     <h2 class="section-title">Cómo <em>trabajo</em></h2>
     <p class="section-subtitle">
@@ -42,7 +42,7 @@ const pasos = [
 
   <div class="proceso-timeline">
     {pasos.map((paso, i) => (
-      <div class="proceso-step" style={`animation-delay: ${i * 0.12}s;`}>
+      <div class="proceso-step reveal" style={`--reveal-delay: ${i * 0.12}s`}>
         <div class="proceso-step__connector">
           <div class="proceso-step__dot"></div>
           {i < pasos.length - 1 && <div class="proceso-step__line"></div>}

@@ -39,7 +39,7 @@ const garantias = [
 ---
 
 <section id="confianza" class="confianza-section">
-  <div class="section-header">
+  <div class="section-header reveal">
     <span class="section-label">Confianza</span>
     <h2 class="section-title">Por qué <em>no verás capturas</em> acá</h2>
     <p class="section-subtitle">
@@ -51,7 +51,7 @@ const garantias = [
 
   <div class="confianza-grid">
     {garantias.map((g, i) => (
-      <article class="confianza-card" style={`animation-delay: ${i * 0.09}s;`}>
+      <article class="confianza-card reveal" style={`--reveal-delay: ${i * 0.1}s`}>
         <div class="confianza-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
             <path d={g.icon} />
@@ -63,7 +63,7 @@ const garantias = [
     ))}
   </div>
 
-  <p class="confianza-note">
+  <p class="confianza-note reveal" style="--reveal-delay: 0.15s">
     Si necesitas referencias antes de decidir, puedo coordinar una llamada con un cliente
     que haya autorizado compartir su experiencia. <a href="#cotizar">Pídemelo en la cotización</a>.
   </p>

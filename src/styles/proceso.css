@@ -24,7 +24,6 @@
 .proceso-step {
   display: flex;
   gap: 20px;
-  animation: fadeInUp 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
 }
 
 .proceso-step__connector {
@@ -148,8 +147,3 @@
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .proceso-step {
-    animation: none;
-  }
-}
