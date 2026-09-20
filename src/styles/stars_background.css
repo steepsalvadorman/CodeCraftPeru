@@ -1,3 +1,5 @@
+/* Fondo — negro profundo con luz dorada */
+
 #star-container {
   position: fixed;
   inset: 0;
@@ -6,76 +8,129 @@
   pointer-events: none;
   contain: strict;
   background:
-    radial-gradient(ellipse 120% 80% at 50% 120%, #0d0820 0%, transparent 55%),
-    radial-gradient(ellipse 90% 60% at 10% 20%, rgba(88, 28, 135, 0.18) 0%, transparent 50%),
-    radial-gradient(ellipse 70% 50% at 90% 60%, rgba(30, 58, 138, 0.14) 0%, transparent 45%),
-    radial-gradient(ellipse 60% 40% at 50% 0%, rgba(239, 68, 68, 0.07) 0%, transparent 55%),
-    radial-gradient(ellipse 100% 100% at 50% 50%, #0a0e1a 0%, #030508 100%);
+    radial-gradient(ellipse 100% 55% at 50% -5%, rgba(91, 143, 199, 0.18) 0%, transparent 58%),
+    radial-gradient(ellipse 55% 40% at 12% 22%, rgba(143, 184, 224, 0.07) 0%, transparent 52%),
+    radial-gradient(ellipse 50% 38% at 88% 28%, rgba(91, 143, 199, 0.06) 0%, transparent 48%),
+    radial-gradient(ellipse 90% 60% at 50% 105%, rgba(58, 99, 144, 0.12) 0%, transparent 55%),
+    linear-gradient(180deg, #0a1424 0%, #050b16 42%, #020610 100%);
 }
 
-/* Nebula drift layers */
+.cosmos-aurora {
+  position: absolute;
+  inset: -20% -10% 40% -10%;
+  background:
+    radial-gradient(ellipse 60% 45% at 50% 0%, rgba(184, 212, 240, 0.12) 0%, transparent 65%),
+    radial-gradient(ellipse 40% 30% at 30% 10%, rgba(91, 143, 199, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 35% 25% at 70% 8%, rgba(143, 184, 224, 0.06) 0%, transparent 55%);
+  filter: blur(40px);
+  opacity: 0.85;
+  animation: aurora-pulse 18s ease-in-out infinite alternate;
+}
+
 .cosmos-nebula {
   position: absolute;
   border-radius: 50%;
-  filter: blur(60px);
-  opacity: 0.5;
+  filter: blur(70px);
   will-change: transform, opacity;
 }
 
 .cosmos-nebula--1 {
-  width: 55vw;
-  height: 55vw;
-  max-width: 700px;
-  max-height: 700px;
-  top: -15%;
-  left: -10%;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.22) 0%, transparent 70%);
+  width: 58vw;
+  height: 58vw;
+  max-width: 720px;
+  max-height: 720px;
+  top: -18%;
+  left: -12%;
+  background: radial-gradient(circle, rgba(91, 143, 199, 0.14) 0%, transparent 68%);
   animation: nebula-float-1 28s ease-in-out infinite alternate;
 }
 
 .cosmos-nebula--2 {
-  width: 45vw;
-  height: 45vw;
-  max-width: 580px;
-  max-height: 580px;
-  bottom: 5%;
-  right: -8%;
-  background: radial-gradient(circle, rgba(59, 130, 246, 0.16) 0%, transparent 70%);
+  width: 48vw;
+  height: 48vw;
+  max-width: 600px;
+  max-height: 600px;
+  bottom: 0;
+  right: -10%;
+  background: radial-gradient(circle, rgba(58, 99, 144, 0.12) 0%, transparent 70%);
   animation: nebula-float-2 34s ease-in-out infinite alternate;
 }
 
 .cosmos-nebula--3 {
-  width: 35vw;
-  height: 35vw;
-  max-width: 450px;
-  max-height: 450px;
-  top: 35%;
-  left: 40%;
-  background: radial-gradient(circle, rgba(239, 68, 68, 0.1) 0%, transparent 70%);
+  width: 38vw;
+  height: 38vw;
+  max-width: 480px;
+  max-height: 480px;
+  top: 38%;
+  left: 38%;
+  background: radial-gradient(circle, rgba(184, 212, 240, 0.06) 0%, transparent 72%);
   animation: nebula-float-3 22s ease-in-out infinite alternate;
 }
 
-/* Galactic dust band */
 .cosmos-dust {
   position: absolute;
   inset: -20%;
   background: linear-gradient(
     135deg,
-    transparent 30%,
-    rgba(255, 255, 255, 0.015) 44%,
-    rgba(200, 180, 255, 0.025) 50%,
-    rgba(255, 255, 255, 0.012) 56%,
-    transparent 70%
+    transparent 28%,
+    rgba(91, 143, 199, 0.025) 42%,
+    rgba(184, 212, 240, 0.035) 50%,
+    rgba(91, 143, 199, 0.02) 58%,
+    transparent 72%
   );
-  transform: rotate(-12deg);
+  transform: rotate(-10deg);
   opacity: 0.7;
   animation: dust-drift 40s ease-in-out infinite alternate;
+}
+
+.cosmos-gold-ray {
+  position: absolute;
+  top: -5%;
+  left: 50%;
+  width: 2px;
+  height: 55%;
+  transform: translateX(-50%);
+  background: linear-gradient(
+    180deg,
+    rgba(184, 212, 240, 0.35) 0%,
+    rgba(91, 143, 199, 0.12) 35%,
+    transparent 100%
+  );
+  filter: blur(1px);
+  opacity: 0.5;
+}
+
+.cosmos-gold-ray::before,
+.cosmos-gold-ray::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 120px;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(91, 143, 199, 0.08) 0%,
+    transparent 70%
+  );
+  filter: blur(24px);
+}
+
+.cosmos-gold-ray::before {
+  left: -60px;
+  transform: skewX(-8deg);
+}
+
+.cosmos-gold-ray::after {
+  right: -60px;
+  transform: skewX(8deg);
 }
 
 .cosmos-vignette {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 80% 70% at 50% 50%, transparent 40%, rgba(0, 0, 0, 0.55) 100%);
+  background:
+    radial-gradient(ellipse 85% 75% at 50% 45%, transparent 30%, rgba(0, 0, 0, 0.55) 100%),
+    linear-gradient(180deg, transparent 0%, rgba(2, 5, 12, 0.4) 100%);
   pointer-events: none;
 }
 
@@ -84,11 +139,17 @@
   inset: 0;
   width: 100%;
   height: 100%;
+  opacity: 0.75;
+}
+
+@keyframes aurora-pulse {
+  0% { opacity: 0.65; transform: scale(1); }
+  100% { opacity: 0.9; transform: scale(1.03); }
 }
 
 @keyframes nebula-float-1 {
   0% { transform: translate(0, 0) scale(1); opacity: 0.45; }
-  100% { transform: translate(3%, 2%) scale(1.08); opacity: 0.65; }
+  100% { transform: translate(3%, 2%) scale(1.08); opacity: 0.6; }
 }
 
 @keyframes nebula-float-2 {
@@ -102,11 +163,12 @@
 }
 
 @keyframes dust-drift {
-  0% { transform: rotate(-12deg) translateX(0); opacity: 0.5; }
-  100% { transform: rotate(-12deg) translateX(2%); opacity: 0.75; }
+  0% { transform: rotate(-10deg) translateX(0); opacity: 0.5; }
+  100% { transform: rotate(-10deg) translateX(2%); opacity: 0.72; }
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .cosmos-aurora,
   .cosmos-nebula,
   .cosmos-dust {
     animation: none;

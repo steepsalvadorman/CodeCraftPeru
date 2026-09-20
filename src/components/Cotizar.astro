@@ -5,20 +5,20 @@
   <div class="cotizar-grid">
     <div class="info-column">
       <div class="badge-accent"><span class="badge-text">COTIZACIÓN GRATUITA</span></div>
-      <h2 class="section-title">Cotiza tu proyecto</h2>
+      <h2 class="section-title">Cotiza <em>tu proyecto</em></h2>
       <p class="contact-description">Cuéntame qué necesita tu empresa y te respondo en menos de 48 horas con una propuesta detallada: alcance, tecnologías, tiempos y costo.</p>
       <div class="benefits-list">
         <div class="benefit-item">
           <div class="benefit-icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" class="benefit-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
-          <div><h4 class="benefit-title">Respuesta en 48 horas</h4><p class="benefit-desc">Cotización detallada con alcance, tiempos y costo estimado.</p></div>
+          <div><h3 class="benefit-title">Respuesta en 48 horas</h3><p class="benefit-desc">Cotización detallada con alcance, tiempos y costo estimado.</p></div>
         </div>
         <div class="benefit-item">
           <div class="benefit-icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" class="benefit-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
-          <div><h4 class="benefit-title">Sin compromiso</h4><p class="benefit-desc">La cotización es gratuita. Tú decides si avanzamos.</p></div>
+          <div><h3 class="benefit-title">Sin compromiso</h3><p class="benefit-desc">La cotización es gratuita. Tú decides si avanzamos.</p></div>
         </div>
         <div class="benefit-item">
           <div class="benefit-icon-wrapper"><svg xmlns="http://www.w3.org/2000/svg" class="benefit-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg></div>
-          <div><h4 class="benefit-title">Prototipo en 2 semanas</h4><p class="benefit-desc">Para proyectos grandes, entrego un MVP para validar antes del desarrollo completo.</p></div>
+          <div><h3 class="benefit-title">Prototipo en 2 semanas</h3><p class="benefit-desc">Para proyectos grandes, entrego un MVP para validar antes del desarrollo completo.</p></div>
         </div>
       </div>
       <div class="contact-direct">
@@ -43,8 +43,8 @@
               <input type="text" id="fullName" name="fullName" required placeholder="Tu nombre" class="form-input" />
             </div>
             <div class="form-group">
-              <label for="company">Empresa</label>
-              <input type="text" id="company" name="company" required placeholder="Nombre de la empresa" class="form-input" />
+              <label for="company">Empresa <span class="label-optional">(opcional)</span></label>
+              <input type="text" id="company" name="company" placeholder="Nombre de la empresa" class="form-input" />
             </div>
           </div>
           <div class="form-row">
@@ -60,12 +60,15 @@
           <div class="form-group">
             <label for="serviceType">Tipo de Proyecto</label>
             <select id="serviceType" name="serviceType" required class="form-input form-select">
-              <option value="" disabled selected>Selecciona el tipo de sistema</option>
-              <option value="erp">Sistema ERP / Gestión Empresarial</option>
-              <option value="inventarios">Control de Inventarios</option>
-              <option value="crm">CRM / Gestión Comercial</option>
-              <option value="dashboard">Dashboard / Business Intelligence</option>
-              <option value="integracion">Integración de Sistemas</option>
+              <option value="" disabled selected>Selecciona el módulo que necesitas</option>
+              <option value="completo">Plataforma completa (todos los módulos)</option>
+              <option value="propuestas">Propuestas</option>
+              <option value="proyectos">Control de Proyectos</option>
+              <option value="timesheet">Timesheet</option>
+              <option value="documentario">Control Documentario</option>
+              <option value="logistica">Logística</option>
+              <option value="personal">Personal</option>
+              <option value="integracion">Integrar sistemas que ya tengo</option>
               <option value="otro">Otro / No estoy seguro</option>
             </select>
           </div>
@@ -82,15 +85,21 @@
           </div>
           <div class="form-group">
             <label for="message">Describe tu proyecto</label>
-            <textarea id="message" name="message" rows="4" required placeholder="¿Qué procesos quieres digitalizar? ¿Cuántos usuarios? ¿Tienes algún sistema actual?" class="form-input form-textarea"></textarea>
+            <textarea id="message" name="message" rows="4" required placeholder="¿Cuántas personas cargarían horas? ¿Cuántos proyectos activos manejas? ¿Qué usas hoy para controlarlos?" class="form-input form-textarea"></textarea>
           </div>
           <button type="submit" class="btn btn--accent btn-submit">
             <span>Enviar Solicitud de Cotización</span>
             <svg xmlns="http://www.w3.org/2000/svg" class="submit-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
           </button>
+
+          <p class="form-privacy">
+            Usamos tus datos únicamente para responder esta solicitud. No los compartimos
+            con terceros y puedes pedir su eliminación escribiendo a
+            <a href="mailto:steepbsm@gmail.com">steepbsm@gmail.com</a>.
+          </p>
         </form>
 
-        <div id="success-toast" class="success-toast hidden">
+        <div id="success-toast" class="success-toast hidden" role="status" aria-live="polite">
           <div class="toast-icon-wrapper">
             <svg xmlns="http://www.w3.org/2000/svg" class="toast-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
           </div>
@@ -99,65 +108,104 @@
             <p class="toast-desc">Te responderé en menos de 48 horas hábiles.</p>
           </div>
         </div>
+
+        <div id="error-toast" class="error-toast hidden" role="alert" aria-live="assertive">
+          <div class="toast-icon-wrapper">
+            <svg xmlns="http://www.w3.org/2000/svg" class="toast-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v4m0 4h.01M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z" /></svg>
+          </div>
+          <div class="toast-content">
+            <h4 class="toast-title">No pudimos enviar tu solicitud</h4>
+            <p class="toast-desc">
+              Revisa tu conexión e inténtalo otra vez. Si el problema sigue, escríbeme
+              directo a <a href="mailto:steepbsm@gmail.com" class="toast-link">steepbsm@gmail.com</a>
+              y te respondo igual.
+            </p>
+            <button type="button" id="retry-btn" class="btn btn--ghost toast-retry">Reintentar</button>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <script>
+  const SUBMIT_LABEL = 'Enviar Solicitud de Cotización';
+
   document.addEventListener('DOMContentLoaded', () => {
-    const form = document.getElementById('cotizar-form') as HTMLFormElement;
-    const toast = document.getElementById('success-toast');
-    const submitBtn = form?.querySelector('.btn-submit') as HTMLButtonElement;
+    const form = document.getElementById('cotizar-form') as HTMLFormElement | null;
+    const successToast = document.getElementById('success-toast');
+    const errorToast = document.getElementById('error-toast');
+    const retryBtn = document.getElementById('retry-btn');
+    const submitBtn = form?.querySelector('.btn-submit') as HTMLButtonElement | null;
     const submitText = submitBtn?.querySelector('span');
 
-    if (form && toast) {
-      form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        if (submitBtn && submitText) {
-          submitBtn.disabled = true;
-          submitText.textContent = 'Enviando...';
-        }
+    if (!form || !successToast || !errorToast) return;
 
-        const formData = new FormData(form);
-        const requestData = {
-          Nombre: formData.get('fullName'),
-          Empresa: formData.get('company'),
-          Email: formData.get('email'),
-          Telefono: formData.get('phone'),
-          TipoProyecto: formData.get('serviceType'),
-          Presupuesto: formData.get('budget'),
-          Mensaje: formData.get('message'),
-          _subject: 'Nueva Cotización — SteepDev Freelance'
-        };
+    function setSubmitting(isSubmitting: boolean) {
+      if (!submitBtn || !submitText) return;
+      submitBtn.disabled = isSubmitting;
+      submitText.textContent = isSubmitting ? 'Enviando...' : SUBMIT_LABEL;
+    }
 
-        fetch('https://formsubmit.co/ajax/steepbsm@gmail.com', {
+    /** Success clears the form; failure keeps it so nothing the user typed is lost. */
+    function showSuccess() {
+      form!.classList.add('hidden');
+      errorToast!.classList.add('hidden');
+      successToast!.classList.remove('hidden');
+      form!.reset();
+      setSubmitting(false);
+    }
+
+    function showError() {
+      form!.classList.add('hidden');
+      successToast!.classList.add('hidden');
+      errorToast!.classList.remove('hidden');
+      setSubmitting(false);
+    }
+
+    retryBtn?.addEventListener('click', () => {
+      errorToast.classList.add('hidden');
+      form.classList.remove('hidden');
+      form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      setSubmitting(true);
+
+      const formData = new FormData(form);
+      const requestData = {
+        Nombre: formData.get('fullName'),
+        Empresa: formData.get('company') || 'No indicada',
+        Email: formData.get('email'),
+        Telefono: formData.get('phone'),
+        TipoProyecto: formData.get('serviceType'),
+        Presupuesto: formData.get('budget'),
+        Mensaje: formData.get('message'),
+        _subject: 'Nueva Cotización — CodeCraft Perú'
+      };
+
+      try {
+        const response = await fetch('https://formsubmit.co/ajax/steepbsm@gmail.com', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
           body: JSON.stringify(requestData)
-        })
-        .then(() => {
-          form.classList.add('hidden');
-          toast.classList.remove('hidden');
-          form.reset();
-          if (submitBtn && submitText) {
-            submitBtn.disabled = false;
-            submitText.textContent = 'Enviar Solicitud de Cotización';
-          }
-          setTimeout(() => { toast.classList.add('hidden'); form.classList.remove('hidden'); }, 8000);
-        })
-        .catch((err) => {
-          console.error('Error enviando formulario:', err);
-          form.classList.add('hidden');
-          toast.classList.remove('hidden');
-          form.reset();
-          if (submitBtn && submitText) {
-            submitBtn.disabled = false;
-            submitText.textContent = 'Enviar Solicitud de Cotización';
-          }
-          setTimeout(() => { toast.classList.add('hidden'); form.classList.remove('hidden'); }, 8000);
         });
-      });
-    }
+
+        // FormSubmit answers 2xx with {success: "true"}; anything else means the
+        // lead never arrived, so the user has to know instead of seeing success.
+        if (!response.ok) throw new Error(`FormSubmit respondió ${response.status}`);
+
+        const result = await response.json().catch(() => null);
+        if (result && result.success === 'false') {
+          throw new Error(result.message ?? 'FormSubmit rechazó la solicitud');
+        }
+
+        showSuccess();
+      } catch (err) {
+        console.error('Error enviando formulario:', err);
+        showError();
+      }
+    });
   });
 </script>

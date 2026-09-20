@@ -1,28 +1,62 @@
-/* Design System — SteepDev Freelance */
+/* Design System — Editorial · Greek classical */
 
 :root {
-  --bg-deep: #0a0a0f;
-  --bg-surface: rgba(18, 20, 28, 0.75);
-  --bg-surface-hover: rgba(28, 32, 44, 0.9);
-  --bg-card: rgba(255, 255, 255, 0.025);
-  --border-color: rgba(255, 255, 255, 0.07);
-  --border-color-hover: rgba(255, 255, 255, 0.14);
+  --bg-deep: #050b16;
+  --bg-elevated: #0a1424; /* unused today; kept as the one step up from --bg-deep */
+  --bg-surface: rgba(10, 20, 36, 0.9);
+  --bg-surface-hover: rgba(15, 28, 48, 0.94);
+  --bg-card: rgba(143, 184, 224, 0.035);
+  --border-color: rgba(91, 143, 199, 0.24);
+  --border-color-hover: rgba(143, 184, 224, 0.42);
+  --border-subtle: rgba(184, 212, 240, 0.1);
 
-  --text-primary: #f0f2f5;
-  --text-secondary: #9aa0ae;
-  --text-muted: #6b7280;
+  /* Contrast ratios below are measured against --bg-deep (#050b16). */
+  --text-primary: #eaf1fa;  /* 17.6:1 */
+  --text-secondary: #a9bed6; /* 10.3:1 */
+  --text-muted: #7d90a8;     /*  6.0:1 — WCAG AA for normal text */
 
-  --accent-green: #00ff88;
-  --accent-green-dim: rgba(0, 255, 136, 0.12);
-  --accent-green-glow: rgba(0, 255, 136, 0.25);
-  --accent-red: #ff4444;
-  --accent-red-dim: rgba(255, 68, 68, 0.12);
-  --accent-amber: #ffb800;
-  --accent-blue: #4da6ff;
+  /* Navy is the ground, so the accents are the lighter end of the ramp.
+     A true navy accent on a near-black page would be invisible. */
+  --ice: #eaf1fa;
+  --blue: #5b8fc7;       /*  5.8:1 */
+  --blue-light: #8fb8e0; /*  9.5:1 */
+  --blue-pale: #b8d4f0;  /* 12.9:1 */
+  --blue-dark: #3a6390;  /*  3.2:1 — decorative only, never text */
+  --steel: #7aa5cd;      /*  7.6:1 */
+  --slate: #9fb6cc;      /*  9.4:1 */
+  --cyan: #6cb4c8;       /*  8.4:1 */
+  --blue-dim: rgba(91, 143, 199, 0.12);
+  --cyan-dim: rgba(108, 180, 200, 0.1);
 
-  --font-display: 'Space Grotesk', 'Segoe UI', system-ui, sans-serif;
-  --font-body: 'Inter', 'Segoe UI', system-ui, sans-serif;
-  --font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+  /* Errors must not read as part of the blue system. */
+  --danger: #d98a7a;     /*  6.6:1 */
+  --danger-dim: rgba(217, 138, 122, 0.12);
+
+  --accent: var(--blue);
+  --accent-dim: var(--blue-dim);
+  --accent-glow: rgba(91, 143, 199, 0.28);
+  --accent-sky: var(--blue-light);
+
+  /* Legacy aliases */
+  --accent-green: var(--blue);
+  --accent-green-dim: var(--blue-dim);
+  --accent-green-glow: var(--accent-glow);
+  --accent-red: var(--danger);
+  --accent-red-dim: var(--danger-dim);
+  --accent-amber: var(--blue);
+  --accent-blue: var(--cyan);
+
+  --font-display: 'GFS Didot', 'Source Serif 4', 'Iowan Old Style', Georgia, serif;
+  --font-body: 'Source Sans 3', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+
+  --tracking-display: -0.018em;
+  --text-display: clamp(2rem, 4.2vw, 3.25rem);
+  --text-display-lh: 1.12;
+
+  /* Mobile-first: the phone value is the base, min-width steps it up.
+     Breakpoint scale used across the project: 577px / 769px / 993px. */
+  --header-height: 64px;
 
   --transition-smooth: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1),
     opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
@@ -31,9 +65,9 @@
     box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-fast: transform 0.2s ease, opacity 0.2s ease, border-color 0.2s ease;
 
-  --radius-sm: 6px;
-  --radius-md: 10px;
-  --radius-lg: 14px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 10px;
   --radius-full: 9999px;
 }
 
@@ -47,24 +81,30 @@
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 88px;
+  scroll-padding-top: calc(var(--header-height) + 16px);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
 }
 
 section[id] {
-  scroll-margin-top: 88px;
+  scroll-margin-top: calc(var(--header-height) + 16px);
 }
 
 body {
   font-family: var(--font-body);
   background-color: var(--bg-deep);
+  background-image:
+    radial-gradient(ellipse 120% 70% at 50% -10%, rgba(91, 143, 199, 0.14) 0%, transparent 52%),
+    radial-gradient(ellipse 80% 50% at 85% 15%, rgba(143, 184, 224, 0.06) 0%, transparent 45%),
+    radial-gradient(ellipse 70% 45% at 10% 80%, rgba(58, 99, 144, 0.08) 0%, transparent 50%),
+    linear-gradient(180deg, #0a1424 0%, var(--bg-deep) 38%, #020610 100%);
+  background-attachment: fixed;
   color: var(--text-primary);
   min-height: 100vh;
   overflow-x: hidden;
   line-height: 1.65;
-  font-feature-settings: 'kern' 1, 'liga' 1;
+  font-feature-settings: 'kern' 1, 'liga' 1, 'onum' 1;
 }
 
 h1,
@@ -74,9 +114,18 @@ h4,
 h5,
 h6 {
   font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+  font-weight: 400;
+  letter-spacing: var(--tracking-display);
+  line-height: var(--text-display-lh);
+  color: var(--text-primary);
+}
+
+h1 em,
+h2 em,
+h3 em,
+.display-em {
+  font-style: italic;
+  font-weight: 400;
 }
 
 /* Scrollbar */
@@ -90,16 +139,38 @@ h6 {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.12);
+  background: rgba(91, 143, 199, 0.28);
   border-radius: var(--radius-full);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(255, 255, 255, 0.22);
+  background: rgba(143, 184, 224, 0.42);
+}
+
+.skip-link {
+  position: absolute;
+  left: 8px;
+  top: -64px;
+  z-index: 200;
+  padding: 10px 18px;
+  border-radius: var(--radius-md);
+  background: var(--ice);
+  color: var(--bg-deep);
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  text-decoration: none;
+  transition: top 0.2s ease;
+}
+
+.skip-link:focus-visible {
+  top: 8px;
+  outline: 2px solid var(--blue);
+  outline-offset: 2px;
 }
 
 .main-content {
-  padding-top: 72px;
+  padding-top: var(--header-height);
   position: relative;
   z-index: 10;
   width: 100%;
@@ -107,10 +178,9 @@ h6 {
   margin: 0 auto;
   padding-left: 20px;
   padding-right: 20px;
-  contain: layout style;
 }
 
-/* Terminal / code window panel */
+/* Panels */
 .terminal-panel {
   background: var(--bg-surface);
   backdrop-filter: blur(12px);
@@ -118,8 +188,6 @@ h6 {
   border: 1px solid var(--border-color);
   border-radius: var(--radius-lg);
   transition: var(--transition-smooth);
-  contain: layout style paint;
-  will-change: transform;
 }
 
 .terminal-panel:hover {
@@ -136,51 +204,61 @@ h6 {
   padding: 12px 28px;
   border-radius: var(--radius-md);
   font-family: var(--font-body);
-  font-weight: 600;
-  font-size: 15px;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.01em;
   text-decoration: none;
   cursor: pointer;
   transition: var(--transition-smooth);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-subtle);
+  background: transparent;
   color: var(--text-primary);
-  will-change: transform;
 }
 
 .btn:hover {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.22);
-  transform: translateY(-2px);
+  background: rgba(234, 241, 250, 0.06);
+  border-color: rgba(234, 241, 250, 0.22);
+  transform: translateY(-1px);
 }
 
 .btn:active {
   transform: translateY(0);
 }
 
+.btn:focus-visible {
+  outline: 2px solid var(--blue-light);
+  outline-offset: 3px;
+}
+
+.btn--accent:focus-visible {
+  outline-color: var(--blue);
+}
+
 .btn--accent {
-  background: var(--accent-green-dim);
-  border: 1px solid rgba(0, 255, 136, 0.3);
-  color: #ffffff;
-  box-shadow: 0 4px 20px rgba(0, 255, 136, 0.08);
+  background: var(--ice);
+  border: 1px solid var(--ice);
+  color: var(--bg-deep);
+  box-shadow: none;
 }
 
 .btn--accent:hover {
-  background: rgba(0, 255, 136, 0.2);
-  border-color: rgba(0, 255, 136, 0.5);
-  box-shadow: 0 4px 28px rgba(0, 255, 136, 0.18);
+  background: #d8e4f2;
+  border-color: #d8e4f2;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
 }
 
 .btn--ghost {
   background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid var(--border-subtle);
 }
 
 .btn--ghost:hover {
-  background: rgba(255, 255, 255, 0.06);
+  background: rgba(234, 241, 250, 0.04);
+  border-color: var(--border-color);
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #ffffff 25%, #a3a3a3 100%);
+  background: linear-gradient(135deg, var(--ice) 20%, var(--text-secondary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -199,49 +277,63 @@ h6 {
 
 .animate-fade-in {
   animation: fadeInUp 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  will-change: transform, opacity;
 }
 
 .tech-tag {
-  font-family: var(--font-mono);
+  font-family: var(--font-body);
   font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
   padding: 4px 10px;
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
   border-radius: var(--radius-sm);
   color: var(--text-secondary);
 }
 
-/* Section labels */
 .section-label {
-  display: inline-block;
-  font-family: var(--font-mono);
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-body);
   font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.14em;
+  font-weight: 500;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  color: var(--accent-green);
-  margin-bottom: 12px;
+  color: var(--blue);
+  margin-bottom: 16px;
+}
+
+.section-label::before {
+  content: '◆';
+  font-size: 7px;
+  opacity: 0.7;
 }
 
 .section-title {
-  font-size: clamp(28px, 4vw, 38px);
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
   font-family: var(--font-display);
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: 12px;
-  color: #ffffff;
-  line-height: 1.15;
+  font-weight: 400;
+  letter-spacing: var(--tracking-display);
+  margin-bottom: 14px;
+  color: var(--text-primary);
+  line-height: var(--text-display-lh);
 }
 
 .section-subtitle {
-  font-size: 15px;
+  font-size: 16px;
+  font-weight: 400;
   color: var(--text-secondary);
-  line-height: 1.6;
+  line-height: 1.65;
   max-width: 560px;
 }
 
-/* Performance: respect user motion preferences */
+@media (min-width: 769px) {
+  :root {
+    --header-height: 72px;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -259,10 +351,5 @@ h6 {
     animation: none;
     opacity: 1;
     transform: none;
-  }
-
-  .terminal-panel,
-  .btn {
-    will-change: auto;
   }
 }

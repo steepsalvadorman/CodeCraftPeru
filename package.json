@@ -12,7 +12,10 @@
   },
   "dependencies": {
     "@astrojs/check": "^0.9.10",
+    "@astrojs/sitemap": "^3.7.4",
+    "@resvg/resvg-js": "^2.6.2",
     "astro": "^7.3.3",
+    "satori": "^0.33.4",
     "typescript": "^5.6.2"
   },
   "devDependencies": {

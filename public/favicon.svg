@@ -1,22 +1,39 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
   <defs>
-    <linearGradient id="red" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#fca5a5"/>
-      <stop offset="45%" stop-color="#ef4444"/>
-      <stop offset="100%" stop-color="#b91c1c"/>
-    </linearGradient>
-    <linearGradient id="green" x1="50%" y1="0%" x2="50%" y2="100%">
-      <stop offset="0%" stop-color="#34d399"/>
-      <stop offset="100%" stop-color="#059669"/>
-    </linearGradient>
-    <linearGradient id="fill" x1="50%" y1="0%" x2="50%" y2="100%">
-      <stop offset="0%" stop-color="#0f1624"/>
-      <stop offset="100%" stop-color="#07090e"/>
+    <linearGradient id="gold" x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#e8dcc4" />
+      <stop offset="50%" stop-color="#c9a962" />
+      <stop offset="100%" stop-color="#8a7344" />
     </linearGradient>
   </defs>
-  <polygon points="64,10 114,36 114,92 64,118 14,92 14,36" stroke="url(#red)" stroke-width="4" fill="url(#fill)" stroke-linejoin="round"/>
-  <path d="M49,44 L32,64 L49,84" stroke="url(#red)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <path d="M79,44 L96,64 L79,84" stroke="url(#red)" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
-  <circle cx="64" cy="64" r="14" stroke="url(#green)" stroke-width="2.5" fill="none"/>
-  <circle cx="64" cy="64" r="4.5" fill="#10b981"/>
+
+  <rect width="128" height="128" rx="24" fill="#0c0f14" />
+
+  <polygon
+    points="64,10 116,40 116,96 64,126 12,96 12,40"
+    stroke="url(#gold)"
+    stroke-width="5"
+    fill="#0c0f14"
+    stroke-linejoin="round"
+  />
+
+  <path
+    d="M46,44 L28,64 L46,84"
+    stroke="#c9a962"
+    stroke-width="6"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+  <path
+    d="M82,44 L100,64 L82,84"
+    stroke="#c9a962"
+    stroke-width="6"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+
+  <circle cx="64" cy="64" r="14" stroke="#4a7c9b" stroke-width="3.5" fill="none" />
+  <circle cx="64" cy="64" r="6" fill="#4a7c9b" />
 </svg>

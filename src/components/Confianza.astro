@@ -1,0 +1,70 @@
+---
+/**
+ * Trust section for a practice that cannot show client screenshots.
+ *
+ * Every claim here is one the site already makes elsewhere (Proceso steps 03-04,
+ * the hero, the quote benefits) — this consolidates them where they carry weight,
+ * right before the ask. Do not add a claim here that is not true and evidenced
+ * somewhere else on the site.
+ *
+ * Anonymised case studies slot in below `garantias` once the sector, scale,
+ * problem and outcome are confirmed by the user. Nothing is invented here.
+ */
+const garantias = [
+  {
+    id: 'nda',
+    title: 'Trabajo bajo acuerdo de confidencialidad',
+    desc: 'Por eso no vas a ver capturas de mis clientes en esta página. Sus datos son suyos, y los tuyos también lo serán.',
+    icon: 'M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z',
+  },
+  {
+    id: 'codigo',
+    title: 'El código es tuyo',
+    desc: 'Sin licencias mensuales ni dependencia de mí. Te entrego el repositorio completo y documentado al cerrar el proyecto.',
+    icon: 'M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4',
+  },
+  {
+    id: 'capacitacion',
+    title: 'Capacito a tu equipo',
+    desc: 'Un sistema que nadie sabe usar no sirve. La capacitación está incluida en la entrega, no es un extra que se cotiza aparte.',
+    icon: 'M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.247m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.247',
+  },
+  {
+    id: 'soporte',
+    title: 'Soporte después de la entrega',
+    desc: 'El día del despliegue no es el día en que desaparezco. El soporte post-lanzamiento viene incluido con el proyecto.',
+    icon: 'M18.364 5.636a9 9 0 010 12.728m0 0l-2.829-2.829m2.829 2.829L21 21M15.536 8.464a5 5 0 010 7.072m0 0l-2.829-2.829m-4.243 2.829a4.978 4.978 0 01-1.414-2.83m-1.414 5.658a9 9 0 01-2.167-9.238m7.824 2.167a1 1 0 111.414 1.414m-1.414-1.414L3 3m8.293 8.293l1.414 1.414',
+  },
+];
+---
+
+<section id="confianza" class="confianza-section">
+  <div class="section-header">
+    <span class="section-label">Confianza</span>
+    <h2 class="section-title">Por qué <em>no verás capturas</em> acá</h2>
+    <p class="section-subtitle">
+      Mis clientes me dan acceso a sus propuestas, sus costos y sus márgenes por proyecto. Publicar sus pantallas
+      sería la forma más rápida de demostrar que no merezco ese acceso. Así que no lo hago —
+      y lo mismo aplicará a tu empresa.
+    </p>
+  </div>
+
+  <div class="confianza-grid">
+    {garantias.map((g, i) => (
+      <article class="confianza-card" style={`animation-delay: ${i * 0.09}s;`}>
+        <div class="confianza-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d={g.icon} />
+          </svg>
+        </div>
+        <h3 class="confianza-title">{g.title}</h3>
+        <p class="confianza-desc">{g.desc}</p>
+      </article>
+    ))}
+  </div>
+
+  <p class="confianza-note">
+    Si necesitas referencias antes de decidir, puedo coordinar una llamada con un cliente
+    que haya autorizado compartir su experiencia. <a href="#cotizar">Pídemelo en la cotización</a>.
+  </p>
+</section>

@@ -1,0 +1,70 @@
+---
+interface Props {
+  class?: string;
+  width?: number;
+  height?: number;
+  id?: string;
+}
+
+const { class: className = '', width = 128, height = 128, id = 'caduceus' } = Astro.props;
+const goldId = `${id}-gold`;
+const staffId = `${id}-staff`;
+---
+
+<svg
+  class:list={['caduceus-icon', className]}
+  width={width}
+  height={height}
+  viewBox="0 0 128 128"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+>
+  <defs>
+    <linearGradient id={goldId} x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#e8dcc4" />
+      <stop offset="50%" stop-color="#c9a962" />
+      <stop offset="100%" stop-color="#8a7344" />
+    </linearGradient>
+    <linearGradient id={staffId} x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#f5f0e8" />
+      <stop offset="100%" stop-color="#a89f8f" />
+    </linearGradient>
+  </defs>
+
+  <!-- Wings -->
+  <path
+    d="M64 18 C48 22, 38 30, 34 40 C42 34, 52 28, 64 26 C76 28, 86 34, 94 40 C90 30, 80 22, 64 18 Z"
+    stroke={`url(#${goldId})`}
+    stroke-width="1.75"
+    fill="rgba(201, 169, 98, 0.08)"
+    stroke-linejoin="round"
+  />
+  <path d="M40 36 C48 32, 56 30, 64 30 C72 30, 80 32, 88 36" stroke={`url(#${goldId})`} stroke-width="1.25" stroke-linecap="round" />
+
+  <!-- Staff -->
+  <line x1="64" y1="28" x2="64" y2="108" stroke={`url(#${staffId})`} stroke-width="3" stroke-linecap="round" />
+
+  <!-- Snakes -->
+  <path
+    d="M64 42 C48 48, 44 58, 50 68 C56 76, 64 74, 64 64 C64 54, 56 52, 52 60 C48 68, 54 78, 64 82"
+    stroke={`url(#${goldId})`}
+    stroke-width="2"
+    stroke-linecap="round"
+    fill="none"
+  />
+  <path
+    d="M64 42 C80 48, 84 58, 78 68 C72 76, 64 74, 64 64 C64 54, 72 52, 76 60 C80 68, 74 78, 64 82"
+    stroke={`url(#${goldId})`}
+    stroke-width="2"
+    stroke-linecap="round"
+    fill="none"
+  />
+
+  <!-- Serpent heads -->
+  <circle cx="52" cy="60" r="2.5" fill="#c9a962" />
+  <circle cx="76" cy="60" r="2.5" fill="#c9a962" />
+
+  <!-- Base orb -->
+  <circle cx="64" cy="108" r="5" stroke={`url(#${goldId})`} stroke-width="1.5" fill="rgba(201, 169, 98, 0.12)" />
+</svg>

@@ -1,0 +1,57 @@
+---
+interface Props {
+  class?: string;
+  width?: number;
+  height?: number;
+  id?: string;
+}
+
+const { class: className = '', width = 128, height = 128, id = 'cc' } = Astro.props;
+const goldId = `cc-gold-${id}`;
+---
+
+<svg
+  class:list={['codecraft-icon', className]}
+  width={width}
+  height={height}
+  viewBox="0 0 128 128"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+>
+  <defs>
+    <linearGradient id={goldId} x1="50%" y1="0%" x2="50%" y2="100%">
+      <stop offset="0%" stop-color="#d8e4f2" />
+      <stop offset="50%" stop-color="#7aa5cd" />
+      <stop offset="100%" stop-color="#3a6390" />
+    </linearGradient>
+  </defs>
+
+  <polygon
+    points="64,10 116,40 116,96 64,126 12,96 12,40"
+    stroke={`url(#${goldId})`}
+    stroke-width="6"
+    fill="#050b16"
+    stroke-linejoin="round"
+  />
+
+  <path
+    d="M46,44 L28,64 L46,84"
+    stroke="#7aa5cd"
+    stroke-width="7"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+  <path
+    d="M82,44 L100,64 L82,84"
+    stroke="#7aa5cd"
+    stroke-width="7"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    fill="none"
+  />
+
+  <circle cx="64" cy="64" r="14" stroke="#8fb8e0" stroke-width="4" fill="none" />
+  <circle cx="64" cy="64" r="6" fill="#5b8fc7" />
+</svg>

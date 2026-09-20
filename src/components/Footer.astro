@@ -6,36 +6,40 @@ import Logo from './Logo.astro';
   <div class="footer-container">
     <div class="footer-brand">
       <div class="footer-logo-row">
-        <Logo variant="full" size="lg" href="/" />
+        <Logo variant="full" size="lg" href="/" showTagline={true} />
       </div>
       <p class="brand-description">
-        Desarrollador frontend freelance especializado en sistemas integrados de gestión web para empresas. ERP, inventarios, CRM y dashboards a medida.
+        <em>CodeCraft Perú</em> — reemplazo herramientas sueltas por una sola plataforma de gestión para empresas de servicios: propuestas, proyectos, timesheet, control documentario, logística y personal. Hablas directo con quien programa.
       </p>
     </div>
 
     <div class="footer-links-grid">
       <div class="footer-links-col">
-        <h6 class="col-title">Servicios</h6>
+        <h3 class="col-title">Módulos</h3>
         <ul class="col-list">
-          <li><a href="#servicios">Sistema ERP Web</a></li>
-          <li><a href="#servicios">Control de Inventarios</a></li>
-          <li><a href="#servicios">CRM & Ventas</a></li>
-          <li><a href="#servicios">Dashboards & BI</a></li>
+          <li><a href="#modulo-propuestas">Propuestas</a></li>
+          <li><a href="#modulo-proyectos">Control de Proyectos</a></li>
+          <li><a href="#modulo-timesheet">Timesheet</a></li>
+          <li><a href="#modulo-documentario">Control Documentario</a></li>
+          <li><a href="#modulo-logistica">Logística</a></li>
+          <li><a href="#modulo-personal">Personal</a></li>
         </ul>
       </div>
 
       <div class="footer-links-col">
-        <h6 class="col-title">Navegación</h6>
+        <h3 class="col-title">Navegación</h3>
         <ul class="col-list">
           <li><a href="#hero">Inicio</a></li>
-
+          <li><a href="#servicios">El sistema</a></li>
           <li><a href="#proceso">Proceso</a></li>
+          <li><a href="#confianza">Confianza</a></li>
           <li><a href="#cotizar">Cotizar</a></li>
+          <li><a href="/about">Quiénes somos</a></li>
         </ul>
       </div>
 
       <div class="footer-links-col">
-        <h6 class="col-title">Contacto</h6>
+        <h3 class="col-title">Contacto</h3>
         <ul class="col-list">
           <li><a href="mailto:steepbsm@gmail.com">steepbsm@gmail.com</a></li>
           <li><a href="https://github.com/steepsalvadorman" target="_blank" rel="noopener noreferrer">GitHub</a></li>
@@ -48,7 +52,7 @@ import Logo from './Logo.astro';
   <div class="footer-bottom">
     <div class="footer-bottom-container">
       <p class="copyright">
-        &copy; {new Date().getFullYear()} SteepDev. Todos los derechos reservados.
+        &copy; {new Date().getFullYear()} CodeCraft Perú. Todos los derechos reservados.
       </p>
       <div class="system-status">
         <span class="status-dot"></span>

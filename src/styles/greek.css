@@ -1,0 +1,71 @@
+/* Ornamentos griegos — meandro, mármol, columnas */
+
+.greek-meander {
+  height: 10px;
+  opacity: 0.65;
+  background-repeat: repeat-x;
+  background-size: 40px 10px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='10' viewBox='0 0 40 10'%3E%3Cpath d='M0 5 H5 L7.5 2.5 L10 5 L12.5 7.5 L15 5 L17.5 2.5 L20 5 L22.5 7.5 L25 5 L27.5 2.5 L30 5 L32.5 7.5 L35 5 L40 5' fill='none' stroke='%237aa5cd' stroke-width='1.1'/%3E%3C/svg%3E");
+}
+
+.greek-meander--thick {
+  height: 14px;
+  background-size: 48px 14px;
+  opacity: 0.8;
+}
+
+.hero-section::before,
+.hero-section::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 10px;
+  opacity: 0.45;
+  background-repeat: repeat-x;
+  background-size: 40px 10px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='10' viewBox='0 0 40 10'%3E%3Cpath d='M0 5 H5 L7.5 2.5 L10 5 L12.5 7.5 L15 5 L17.5 2.5 L20 5 L22.5 7.5 L25 5 L27.5 2.5 L30 5 L32.5 7.5 L35 5 L40 5' fill='none' stroke='%237aa5cd' stroke-width='1'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.hero-section::before {
+  top: 24px;
+}
+
+.hero-section::after {
+  bottom: 24px;
+}
+
+.section-header::after {
+  content: '';
+  display: block;
+  width: 120px;
+  height: 10px;
+  margin: 20px auto 0;
+  opacity: 0.55;
+  background-repeat: repeat-x;
+  background-size: 40px 10px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='10' viewBox='0 0 40 10'%3E%3Cpath d='M0 5 H5 L7.5 2.5 L10 5 L12.5 7.5 L15 5 L17.5 2.5 L20 5 L22.5 7.5 L25 5 L27.5 2.5 L30 5 L32.5 7.5 L35 5 L40 5' fill='none' stroke='%237aa5cd' stroke-width='1'/%3E%3C/svg%3E");
+}
+
+.servicio-card::before,
+.proceso-step__content::before,
+.terminal-panel::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 16px;
+  right: 16px;
+  height: 8px;
+  opacity: 0.35;
+  background-repeat: repeat-x;
+  background-size: 32px 8px;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='8' viewBox='0 0 32 8'%3E%3Cpath d='M0 4 H4 L6 2 L8 4 L10 6 L12 4 L14 2 L16 4 L18 6 L20 4 L22 2 L24 4 L26 6 L28 4 L32 4' fill='none' stroke='%237aa5cd' stroke-width='0.9'/%3E%3C/svg%3E");
+  pointer-events: none;
+}
+
+.servicio-card,
+.proceso-step__content,
+.terminal-panel {
+  position: relative;
+}
